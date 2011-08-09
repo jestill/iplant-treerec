@@ -16,14 +16,16 @@ reconcile_gene_tree.pl
 
 =head2 Required Software
 
-=item * muscle
+=item * MUSCLE
 
-The muscle multiple sequence alignment program.
+The MUSCLE multiple sequence alignment program is available for
+download from:
+http://www.ebi.ac.uk/Tools/msa/muscle/
 
 =item * TreeBeST
 
-TreeBeST is available as source code from
-http://treesoft.sourceforge.net/treebest.shtml
+TreeBeST is available as source code from:
+https://github.com/lh3/treebest
 
 =item * reconcile
 
