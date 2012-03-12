@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<chado>
+  <!--XORT macros - we can refer to these later-->
+  <cv op="force" id="relationship">
+    <name>relationship</name>
+  </cv>
+  <cv op="force" id="synonym_type">
+    <name>synonym_type</name>
+  </cv>
+  <cv op="force" id="cvterm_property_type">
+    <name>cvterm_property_type</name>
+  </cv>
+  <cv op="force" id="anonymous_cv">
+    <name>anonymous</name>
+  </cv>
+  <db op="force" id="OBO_REL">
+    <name>OBO_REL</name>
+  </db>
+  <db op="force" id="_default_idspace">
+    <name>tron_ontology.obo</name>
+  </db>
+  <db op="force" id="internal">
+    <name>internal</name>
+  </db>
+  <cvterm op="force" id="comment_type">
+    <dbxref_id>
+      <dbxref>
+        <db_id>internal</db_id>
+        <accession>comment</accession>
+      </dbxref>
+    </dbxref_id>
+    <cv_id>cvterm_property_type</cv_id>
+    <name>comment</name>
+  </cvterm>
+  <cvterm op="force" id="is_anonymous">
+    <dbxref_id>
+      <dbxref>
+        <db_id>internal</db_id>
+        <accession>is_anonymous</accession>
+      </dbxref>
+    </dbxref_id>
+    <cv_id>cvterm_property_type</cv_id>
+    <name>is_anonymous</name>
+  </cvterm>
+  <cvterm op="force" id="builtin__is_a">
+    <dbxref_id>
+      <dbxref>
+        <db_id>OBO_REL</db_id>
+        <accession>is_a</accession>
+      </dbxref>
+    </dbxref_id>
+    <cv_id>relationship</cv_id>
+    <name>is_a</name>
+    <is_relationshiptype>1</is_relationshiptype>
+  </cvterm>
+  <!--
+        external cvterms that are referred to in this document
+      -->
+  <!--
+        cv/namespaces
+      -->
+  <!--relationship types-->
+  <cvterm op="force" id="OBO">
+    <dbxref_id>
+      <dbxref id="dbxref__OBO">
+        <db_id>_default_idspace</db_id>
+        <accession>OBO</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>OBO</name>
+    <is_relationshiptype>1</is_relationshiptype>
+  </cvterm>
+  <!--terms-->
+  <cvterm id="TRON:0000000">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000000">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000000</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>reconciled_tree</name>
+  </cvterm>
+  <cvterm id="TRON:0000001">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000001">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000001</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>node</name>
+  </cvterm>
+  <cvterm id="TRON:0000002">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000002">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000002</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>edge</name>
+  </cvterm>
+  <cvterm id="TRON:0000003">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000003">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000003</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>host_edge</name>
+  </cvterm>
+  <cvterm id="TRON:0000004">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000004">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000004</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>guest_edge</name>
+  </cvterm>
+  <cvterm id="TRON:0000005">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000005">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000005</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>guest_node</name>
+  </cvterm>
+  <cvterm id="TRON:0000006">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000006">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000006</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>host_node</name>
+  </cvterm>
+  <cvterm id="TRON:0000007">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000007">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000007</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>leaf_node</name>
+  </cvterm>
+  <cvterm id="TRON:0000008">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000008">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000008</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>bifurcation</name>
+  </cvterm>
+  <cvterm id="TRON:0000009">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000009">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000009</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>duplication</name>
+  </cvterm>
+  <cvterm id="TRON:0000010">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000010">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000010</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>speciation</name>
+  </cvterm>
+  <cvterm id="TRON:0000011">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000011">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000011</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>whole_genome_duplication</name>
+  </cvterm>
+  <cvterm id="TRON:0000012">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000012">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000012</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>segmental_duplication</name>
+  </cvterm>
+  <cvterm id="TRON:0000013">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000013">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000013</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>interchromosomal_segmental_duplication</name>
+  </cvterm>
+  <cvterm id="TRON:0000014">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000014">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000014</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>intrachromosomal_segmental_duplication</name>
+  </cvterm>
+  <cvterm id="TRON:0000015">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000015">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000015</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>loss</name>
+  </cvterm>
+  <cvterm id="TRON:0000016">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000016">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000016</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>horizontal_transfer</name>
+  </cvterm>
+  <cvterm id="TRON:0000017">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000017">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000017</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>holochromosomal_duplication</name>
+  </cvterm>
+  <cvterm id="TRON:0000018">
+    <dbxref_id>
+      <dbxref id="dbxref__TRON:0000018">
+        <db_id>
+          <db>
+            <name>TRON</name>
+          </db>
+        </db_id>
+        <accession>0000018</accession>
+      </dbxref>
+    </dbxref_id>
+    <name>tandem_duplication</name>
+  </cvterm>
+  <!--instances-->
+  <!--is_a relationship types-->
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000003</subject_id>
+    <object_id>TRON:0000002</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000004</subject_id>
+    <object_id>TRON:0000002</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000005</subject_id>
+    <object_id>TRON:0000001</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000006</subject_id>
+    <object_id>TRON:0000001</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000007</subject_id>
+    <object_id>TRON:0000001</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000009</subject_id>
+    <object_id>TRON:0000008</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000010</subject_id>
+    <object_id>TRON:0000008</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000011</subject_id>
+    <object_id>TRON:0000009</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000012</subject_id>
+    <object_id>TRON:0000009</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000013</subject_id>
+    <object_id>TRON:0000012</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000014</subject_id>
+    <object_id>TRON:0000012</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000017</subject_id>
+    <object_id>TRON:0000012</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>builtin__is_a</type_id>
+    <subject_id>TRON:0000018</subject_id>
+    <object_id>TRON:0000009</object_id>
+  </cvterm_relationship>
+  <!--other relationship types-->
+  <cvterm_relationship>
+    <type_id>OBO</type_id>
+    <subject_id>TRON:0000001</subject_id>
+    <object_id>TRON:0000000</object_id>
+  </cvterm_relationship>
+  <cvterm_relationship>
+    <type_id>OBO</type_id>
+    <subject_id>TRON:0000002</subject_id>
+    <object_id>TRON:0000000</object_id>
+  </cvterm_relationship>
+  <!--is_a relationship types between typedefs-->
+  <!--cvterm metadata-->
+  <!--instance-level relations-->
+</chado>

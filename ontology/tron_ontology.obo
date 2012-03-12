@@ -1,0 +1,309 @@
+format-version: 1.2
+date: 13:09:2011 14:13
+saved-by: jestill
+auto-generated-by: The OWL API (version 2.2.1.1138)
+id_space: rdfs http://www.w3.org/2000/01/rdf-schema#
+id_space: owl http://www.w3.org/2002/07/owl#
+id_space: obo http://purl.org/obo/
+id_space: xsd http://www.w3.org/2001/XMLSchema#
+id_space: owl2xml http://www.w3.org/2006/12/owl2-xml#
+id_space: tron http://purl.org/phylo/tron/1.0/tron.owl#
+id_space: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+
+! ----------------------  CLASSES  -------------------------
+
+[Term]
+id: bifurcation
+name: bifurcation
+namespace: obo
+is_a: Thing
+owlcreation_date: 2011-02-09T01:49:04Z
+identifier: TRON:0000008
+
+[Term]
+id: duplication
+name: duplication
+namespace: obo
+is_a: bifurcation
+owlcreation_date: 2011-02-09T01:54:32Z
+identifier: TRON:0000009
+
+[Term]
+id: edge
+name: edge
+namespace: obo
+is_a: Thing
+relationship: owlOBO reconciled_tree
+owlcreation_date: 2011-02-09T01:27:41Z
+identifier: 0000002
+
+[Term]
+id: guest_edge
+name: guest_edge
+namespace: obo
+is_a: edge
+owlcreation_date: 2011-02-09T01:28:33Z
+identifier: 0000004
+
+[Term]
+id: guest_node
+name: guest_node
+namespace: obo
+is_a: node
+owlcreation_date: 2011-02-09T01:32:11Z
+identifier: 0000005
+
+[Term]
+id: holochromosomal_duplication
+name: holochromosomal_duplication
+namespace: obo
+is_a: segmental_duplication
+owlcreation_date: 2011-02-09T02:25:48Z
+identifier: 0000017
+
+[Term]
+id: horizontal_transfer
+name: horizontal_transfer
+namespace: obo
+is_a: Thing
+owlcreation_date: 2011-02-09T02:07:32Z
+identifier: 0000016
+
+[Term]
+id: host_edge
+name: host_edge
+namespace: obo
+is_a: edge
+owlcreation_date: 2011-02-09T01:28:22Z
+identifier: 0000003
+
+[Term]
+id: host_node
+name: host_node
+namespace: obo
+is_a: node
+owlcreation_date: 2011-02-09T01:32:23Z
+identifier: 0000006
+
+[Term]
+id: interchromosomal_segmental_duplication
+name: interchromosomal_segmental_duplication
+namespace: obo
+is_a: segmental_duplication
+owlcreation_date: 2011-02-09T02:03:44Z
+identifier: 0000013
+
+[Term]
+id: intrachromosomal_segmental_duplication
+name: intrachromosomal_segmental_duplication
+namespace: obo
+is_a: segmental_duplication
+owlcreation_date: 2011-02-09T02:06:50Z
+identifier: 0000014
+
+[Term]
+id: leaf_node
+name: leaf_node
+namespace: obo
+is_a: node
+owlcreation_date: 2011-02-09T01:48:15Z
+identifier: 0000007
+
+[Term]
+id: loss
+name: loss
+namespace: obo
+is_a: Thing
+owlcreation_date: 2011-02-09T02:06:59Z
+identifier: 0000015
+
+[Term]
+id: node
+name: node
+namespace: obo
+is_a: Thing
+relationship: owlOBO reconciled_tree
+owlcreation_date: 2011-02-09T01:23:26Z
+identifier: 0000001
+
+[Term]
+id: reconciled_tree
+name: reconciled_tree
+namespace: obo
+is_a: Thing
+owlcreation_date: 2011-02-09T01:22:50Z
+description: A reconciled tree is the mapping of the nodes of a guest tree onto the nodes and edges of a host_tree. A reconciled_tree is a product of a reconciliation process as implemented in cophylogeny_inference_software. 
+identifier: 0000000
+
+[Term]
+id: segmental_duplication
+name: segmental_duplication
+namespace: obo
+is_a: duplication
+owlcreation_date: 2011-02-09T02:01:30Z
+identifier: 0000012
+
+[Term]
+id: speciation
+name: speciation
+namespace: obo
+is_a: bifurcation
+owlcreation_date: 2011-02-09T01:54:44Z
+identifier: TRON:0000010
+
+[Term]
+id: tandem_duplication
+name: tandem_duplication
+namespace: obo
+is_a: duplication
+owlcreation_date: 2011-02-09T02:34:50Z
+identifier: 0000018
+
+[Term]
+id: whole_genome_duplication
+name: whole_genome_duplication
+namespace: obo
+is_a: duplication
+owlcreation_date: 2011-02-09T02:01:15Z
+identifier: 0000011
+
+[Term]
+id: CoRe-PA
+name: CoRe-PA
+is_a: cophylogeny_inference_software
+
+[Term]
+id: DrML
+name: DrML
+is_a: cophylogeny_inference_software
+
+[Term]
+id: DupTree
+name: DupTree
+is_a: cophylogeny_inference_software
+
+[Term]
+id: EvolMap
+name: EvolMap
+is_a: cophylogeny_inference_software
+
+[Term]
+id: FORESTER
+name: FORESTER
+is_a: cophylogeny_inference_software
+
+[Term]
+id: GIGA
+name: GIGA
+is_a: cophylogeny_inference_software
+
+[Term]
+id: Jane
+name: Jane
+is_a: cophylogeny_inference_software
+
+[Term]
+id: Mowgli
+name: Mowgli
+is_a: cophylogeny_inference_software
+
+[Term]
+id: Notung
+name: Notung
+is_a: cophylogeny_inference_software
+
+[Term]
+id: Phylodog
+name: Phylodog
+is_a: cophylogeny_inference_software
+
+[Term]
+id: PrIME-GSR
+name: PrIME-GSR
+is_a: cophylogeny_inference_software
+
+[Term]
+id: RAP
+name: RAP
+is_a: cophylogeny_inference_software
+
+[Term]
+id: RAP-Green
+name: RAP-Green
+is_a: cophylogeny_inference_software
+
+[Term]
+id: SPIMAP
+name: SPIMAP
+is_a: cophylogeny_inference_software
+
+[Term]
+id: Softparsmap
+name: Softparsmap
+is_a: cophylogeny_inference_software
+
+[Term]
+id: Tarzan
+name: Tarzan
+is_a: cophylogeny_inference_software
+
+[Term]
+id: TreeBeST
+name: TreeBeST
+is_a: cophylogeny_inference_software
+
+[Term]
+id: TreeFitter
+name: TreeFitter
+is_a: cophylogeny_inference_software
+
+[Term]
+id: TreeKO
+name: TreeKO
+is_a: cophylogeny_inference_software
+
+[Term]
+id: TreeMap
+name: TreeMap
+is_a: cophylogeny_inference_software
+
+[Term]
+id: cophylogeny_inference_software
+name: cophylogeny_inference_software
+is_a: software
+description: A cophylogeny_inference_software is software that makes inferences for a guest tree in the context of the evolutionary history a the host tree.
+
+[Term]
+id: cophylogeny_visualization_software
+name: cophylogeny_visualization_software
+is_a: software
+
+[Term]
+id: iGTP
+name: iGTP
+is_a: cophylogeny_inference_software
+
+[Term]
+id: software
+name: software
+is_a: Thing
+
+[Term]
+id: Thing
+name: Thing
+namespace: owl
+
+
+! ----------------------  PROPERTIES  -------------------------
+
+[Typedef]
+id: owlOBO
+name: part_of
+namespace: obo
+is_metadata_tag: false
+owlcreation_date: 2011-02-09T01:23:50Z
+owlcreated_by: jestill
+
+
+! ----------------------  INSTANCES  -------------------------

@@ -1,0 +1,325 @@
+Prefix: ns0: <http://cohse.semanticweb.org/ontologies/people#>
+Prefix: iol: <http://www.loa-cnr.it/ontologies/IOLite.owl#>
+Prefix: xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#>
+Prefix: edns: <http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#>
+Prefix: dm: <http://standards.iso.org/iso/ts/15926/-8/ed-1/tech/reference-data/data-model#>
+Prefix: p7tm: <http://standards.iso.org/iso/ts/15926/-8/ed-1/tech/reference-data/p7tm#>
+Prefix: steplib: <http://www.steplib.com/data#>
+Prefix: owl2xml: <http://www.w3.org/2006/12/owl2-xml#>
+Prefix: family: <http://www.example.org/family#>
+Prefix: protege: <http://protege.stanford.edu/plugins/owl/protege#>
+Prefix: your: <http://example.net/yourVocab#>
+Prefix: GUM-3: <http://www.ontospace.uni-bremen.de/ontology/stable/GUM-3.owl#>
+Prefix: rating101: <http://marienfeld.org/ontologies/2011/rating101.owl#>
+Prefix: ili: <http://www.loa-cnr.it/ontologies/CLO/LegalILI.owl#>
+Prefix: pca: <http://www.posccaesar.org/data#>
+Prefix: admin: <http://webns.net/mvcb/>
+Prefix: ns_transport: <file://www.ibm.com/WSRR/Transport#>
+Prefix: ontomusica: <http://www.rodrigo.goulart.nom.br/feevale/ontomusica/ontomusica.owl#>
+Prefix: soc: <http://www.loa-cnr.it/ontologies/SocialUnits.owl#>
+Prefix: vcard: <http://www.w3.org/2001/vcard-rdf/3.0#>
+Prefix: profile: <http://www.daml.org/services/owl-s/1.1/Profile.owl#>
+Prefix: xs: <http://www.w3.org/TR/2008/REC-xml-20081126#>
+Prefix: company1: <http://rdl.example.com#>
+Prefix: log: <http://www.w3.org/2000/10/swap/log#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: paws_users: <http://www.sis.pitt.edu/~paws/ont/users.rdf#>
+Prefix: dol: <http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#>
+Prefix: p7tpl: <http://standards.iso.org/iso/ts/15926/-8/ed-1/tech/reference-data/p7tpl#>
+Prefix: foafProfiler: <http://www.foaf.udeogu.com/NS/>
+Prefix: : <http://www.co-ode.org/ontologies/pizza/pizza.owl#>
+Prefix: Ontology1304513648648: <http://www.semanticweb.org/ontologies/2011/4/Ontology1304513648648.owl#>
+Prefix: rdl: <http://rdl.example.org#>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: people: <http://owl.man.ac.uk/2005/07/sssw/people#>
+Prefix: conc: <http://www.loa-cnr.it/ontologies/Conceptualization.owl#>
+Prefix: vol: <http://ontology.example.org/VolumeControl.owl#>
+Prefix: coll: <http://www.loa-cnr.it/ontologies/Collections.owl#>
+Prefix: f: <http://www.cems.uwe.ac.uk/empdept/concept/>
+Prefix: jms: <http://jena.hpl.hp.com/2003/08/jms#>
+Prefix: foaf: <http://xmlns.com/foaf/0.1/>
+Prefix: owl11xml: <http://www.w3.org/2006/12/owl11-xml#>
+Prefix: norpos: <http://www.loa-cnr.it/ontologies/CLO/NormativePositions.owl#>
+Prefix: second: <http://www.w3.org/2002/03owlt/imports/main008#>
+Prefix: owl11: <http://www.w3.org/2006/12/owl11#>
+Prefix: cprog: <http://www.sis.pitt.edu/~paws/ont/c_programming.rdfs#>
+Prefix: rdfschema: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: j.0: <http://owl2.test/rules/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: inf: <http://www.loa-cnr.it/ontologies/InformationObjects.owl#>
+Prefix: dbpedia: <http://dbpedia.org/resource/>
+Prefix: sys: <http://www.loa-cnr.it/ontologies/Systems.owl#>
+Prefix: meta: <http://standards.iso.org/iso/ts/15926/-8/ed-1/tech/reference-data/metadata#>
+Prefix: colv: <http://www.loa-cnr.it/ontologies/Collectives.owl#>
+Prefix: pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#>
+Prefix: miniTambis: <http://miniTambis#>
+Prefix: fb: <http://rdf.freebase.com/ns/>
+Prefix: service: <http://www.daml.org/services/owl-s/1.1/Service.owl#>
+Prefix: example: <http://purl.org/science/ontology/example/>
+Prefix: daml: <http://www.daml.org/2001/03/daml+oil#>
+Prefix: ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
+Prefix: rss: <http://purl.org/rss/1.0/>
+Prefix: first: <http://www.w3.org/2002/03owlt/AllDifferent/premises001#>
+Prefix: swp: <http://www.w3.org/2004/03/trix/swp-1/>
+Prefix: ns: <http://purl.org/dc/elements/1.1/>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: swrl: <http://www.w3.org/2003/11/swrl#>
+Prefix: process: <http://www.daml.org/services/owl-s/1.1/Process.owl#>
+Prefix: j.1: <http://semanticbible.org/ns/2006/NTNames#>
+Prefix: swrlb: <http://www.w3.org/2003/11/swrlb#>
+Prefix: scroowl: <http://www.cs.uwm.edu/~alnusair/ontologies/scro.owl#>
+Prefix: ex: <http://www.example.org/vocabulary#>
+Prefix: beer: <http://www.beer.com/>
+Prefix: obo: <http://purl.obolibrary.org/obo/>
+Prefix: phw: <http://ontology.example.org/PhysicalWorld.owl#>
+Prefix: expr: <http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: 
+
+Annotations: 
+    obo:saved-by "jestill"^^xsd:string,
+    obo:date "09:02:2011 14:50"^^xsd:string,
+    obo:format-version "1.2"^^xsd:string,
+    obo:auto-generated-by "OBO-Edit 2.1-beta4"^^xsd:string
+
+AnnotationProperty: obo:format-version
+
+    
+AnnotationProperty: obo:saved-by
+
+    
+AnnotationProperty: obo:created_by
+
+    
+AnnotationProperty: rdfschema:label
+
+    
+AnnotationProperty: obo:auto-generated-by
+
+    
+AnnotationProperty: obo:creation_date
+
+    
+AnnotationProperty: obo:date
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: obo:http_//purl.org/obo/owl:OBO
+
+    Annotations: 
+        rdfschema:label "part_of"^^xsd:string
+    
+    
+ObjectProperty: obo:OBO
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T01:23:50Z"
+    
+    
+Class: obo:TRON_0000009
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "duplication"^^xsd:string,
+        obo:creation_date "2011-02-09T01:54:32Z"
+    
+    SubClassOf: 
+        obo:TRON_0000008
+    
+    
+Class: obo:TRON_0000003
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "host_edge"^^xsd:string,
+        obo:creation_date "2011-02-09T01:28:22Z"
+    
+    SubClassOf: 
+        obo:TRON_0000002
+    
+    
+Class: obo:TRON_0000004
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "guest_edge"^^xsd:string,
+        obo:creation_date "2011-02-09T01:28:33Z"
+    
+    SubClassOf: 
+        obo:TRON_0000002
+    
+    
+Class: obo:TRON_0000001
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "node"^^xsd:string,
+        obo:creation_date "2011-02-09T01:23:26Z"
+    
+    SubClassOf: 
+        obo:http_//purl.org/obo/owl:OBO some obo:TRON_0000000
+    
+    
+Class: obo:TRON_0000002
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T01:27:41Z",
+        rdfschema:label "edge"^^xsd:string
+    
+    SubClassOf: 
+        obo:http_//purl.org/obo/owl:OBO some obo:TRON_0000000
+    
+    
+Class: obo:TRON_0000007
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "leaf_node"^^xsd:string,
+        obo:creation_date "2011-02-09T01:48:15Z"
+    
+    SubClassOf: 
+        obo:TRON_0000001
+    
+    
+Class: obo:TRON_0000010
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T01:54:44Z",
+        rdfschema:label "speciation"^^xsd:string
+    
+    SubClassOf: 
+        obo:TRON_0000008
+    
+    
+Class: obo:TRON_0000008
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "bifurcation"^^xsd:string,
+        obo:creation_date "2011-02-09T01:49:04Z"
+    
+    
+Class: obo:TRON_0000011
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "whole_genome_duplication"^^xsd:string,
+        obo:creation_date "2011-02-09T02:01:15Z"
+    
+    SubClassOf: 
+        obo:TRON_0000009
+    
+    
+Class: obo:TRON_0000005
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "guest_node"^^xsd:string,
+        obo:creation_date "2011-02-09T01:32:11Z"
+    
+    SubClassOf: 
+        obo:TRON_0000001
+    
+    
+Class: obo:TRON_0000006
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T01:32:23Z",
+        rdfschema:label "host_node"^^xsd:string
+    
+    SubClassOf: 
+        obo:TRON_0000001
+    
+    
+Class: obo:TRON_0000015
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "loss"^^xsd:string,
+        obo:creation_date "2011-02-09T02:06:59Z"
+    
+    
+Class: obo:TRON_0000014
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T02:06:50Z",
+        rdfschema:label "intrachromosomal_segmental_duplication"^^xsd:string
+    
+    SubClassOf: 
+        obo:TRON_0000012
+    
+    
+Class: obo:TRON_0000013
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T02:03:44Z",
+        rdfschema:label "interchromosomal_segmental_duplication"^^xsd:string
+    
+    SubClassOf: 
+        obo:TRON_0000012
+    
+    
+Class: obo:TRON_0000012
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "segmental_duplication"^^xsd:string,
+        obo:creation_date "2011-02-09T02:01:30Z"
+    
+    SubClassOf: 
+        obo:TRON_0000009
+    
+    
+Class: obo:TRON_0000000
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T01:22:50Z",
+        rdfschema:label "reconciled_tree"^^xsd:string
+    
+    
+Class: obo:TRON_0000018
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "tandem_duplication"^^xsd:string,
+        obo:creation_date "2011-02-09T02:34:50Z"
+    
+    SubClassOf: 
+        obo:TRON_0000009
+    
+    
+Class: obo:TRON_0000017
+
+    Annotations: 
+        obo:created_by "jestill",
+        obo:creation_date "2011-02-09T02:25:48Z",
+        rdfschema:label "holochromosomal_duplication"^^xsd:string
+    
+    SubClassOf: 
+        obo:TRON_0000012
+    
+    
+Class: obo:TRON_0000016
+
+    Annotations: 
+        obo:created_by "jestill",
+        rdfschema:label "horizontal_transfer"^^xsd:string,
+        obo:creation_date "2011-02-09T02:07:32Z"
+    
+    
