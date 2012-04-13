@@ -1,0 +1,456 @@
+format-version: 1.2
+date: 08:10:2010 13:27
+auto-generated-by: OBO-Edit 2.1-beta4
+default-namespace: default_namespace
+
+[Term]
+id: ID:0000000
+name: nhx
+def: "NHX is a format for describing annotated phylogenies. NHX is based on the New Hampshire (NH) standard (also called \"Newick tree format\")." [URL:http\://www.phylosoft.org/NHX/]
+creation_date: 2010-10-08T11:01:14Z
+
+[Term]
+id: ID:0000001
+name: GN
+def: "The GN tag represents the gene name." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:08:02Z
+
+[Term]
+id: ID:0000002
+name: AC
+def: "The AC value is the sequence accession for the node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:10:38Z
+
+[Term]
+id: ID:0000003
+name: prime
+creation_date: 2010-10-08T11:55:30Z
+
+[Term]
+id: ID:0000004
+name: ND
+def: "The ND tag represents the node identifier. If this tag is being used, it has to be unique within each phylogeny." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:12:32Z
+
+[Term]
+id: ID:0000005
+name: B
+def: "The B value is the confidence value for the parent branch." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:13:30Z
+
+[Term]
+id: ID:0000006
+name: phyloXML
+def: "phyloXML is an XML language designed to describe phylogenetic trees (or networks) and associated data.\nPhyloxml' is the name of the root element. Phyloxml contains an arbitrary number of 'phylogeny' elements (each representing one phylogeny) possibly followed by elements from other namespaces." [URL:http\://www.phyloxml.org/]
+creation_date: 2010-10-08T12:13:09Z
+
+[Term]
+id: ID:0000007
+name: D
+def: "The D value is used to represent a duplication event. This value is T' if this node represents a duplication event, 'F' if this node represents a speciation event, and '?' if this node represents an unknown event. The (D= tag should be replaced by Ev= tag)." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:14:13Z
+
+[Term]
+id: ID:0000008
+name: Ev
+def: "The Ev tag is used to indicate and event, and it replaces the =D tag. This is used to indicate the number of duplication, speciation, and gene loss events, and the type of event (transfer, fusion, root, unknown, other, speciation_duplication_loss, unassigned)." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:15:39Z
+
+[Term]
+id: ID:0000009
+name: E
+def: "The E tag represents the EC number at this node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:16:22Z
+
+[Term]
+id: ID:0000010
+name: Fu
+def: "The Fu tag represents the function at this node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:16:48Z
+
+[Term]
+id: ID:0000011
+name: Ds
+def: "The Ds tag indicates the domain structure at this node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:17:17Z
+
+[Term]
+id: ID:0000012
+name: S
+def: "The S tag is used to indicate the species name of the species/phylum at this node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:18:26Z
+
+[Term]
+id: ID:0000013
+name: T
+def: "The T tag is used to indicate the taxonomy ID of the species/phylum at this node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:19:21Z
+
+[Term]
+id: ID:0000014
+name: W
+def: "The W tag is used to indicate the width of parent branch. This value should be an integer." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:20:16Z
+
+[Term]
+id: ID:0000015
+name: C
+def: "The C value is the color of parent branch. Color should be in the format 'rrr.ggg.bbb' using integers to represent color value." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:20:45Z
+
+[Term]
+id: ID:0000016
+name: Co
+def: "The Co boolean is used to indicate the we should collapse this node when drawing the tree (default is not to collapse)." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:21:21Z
+
+[Term]
+id: ID:0000017
+name: XB
+def: "The XB tag may be used to indicate custom data associated with a branch." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:21:44Z
+
+[Term]
+id: ID:0000018
+name: XN
+def: "The XN tag may be used to indicate custom data associated with a node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:22:13Z
+
+[Term]
+id: ID:0000019
+name: O
+def: "The O tag is used to indicate orthologous to this external node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:22:50Z
+
+[Term]
+id: ID:0000020
+name: SN
+def: "The SN tag indicates the subtree neighbors of the node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:23:32Z
+
+[Term]
+id: ID:0000021
+name: SO
+def: "The SO tag is used to indicate super orthologous (no duplications on paths) to this external node." [URL:http\://www.phylosoft.org/NHX/]
+is_a: ID:0000000 ! nhx
+creation_date: 2010-10-08T11:24:21Z
+
+[Term]
+id: ID:0000022
+name: Accession
+def: "Element Accession is used to capture the local part in a sequence identifier (e.g. 'P17304' in 'UniProtKB:P17304', in which case the 'source' attribute would be 'UniProtKB')." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:17:39Z
+
+[Term]
+id: ID:0000023
+name: Annotation
+def: "The annotation of a molecular sequence. It is recommended to annotate by using the optional 'ref' attribute (some examples of acceptable values for the ref attribute: 'GO:0008270', 'KEGG:Tetrachloroethene degradation', 'EC:1.1.1.1'). Optional element 'desc' allows for a free text description. Optional element 'confidence' is used to state the type and value of support for a annotation. Similarly, optional attribute 'evidence' is used to describe the evidence for a annotation as free text (e.g. 'experimental'). Optional element 'property' allows for further, typed and referenced annotations from external resources." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:20:03Z
+
+[Term]
+id: ID:0000024
+name: BinaryCharacterList
+def: "A list of binary characaters." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:22:05Z
+
+[Term]
+id: ID:0000025
+name: BinaryCharacters
+def: "The names and/or counts of binary characters present, gained, and lost at the root of a clade." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:23:45Z
+
+[Term]
+id: ID:0000026
+name: BranchColor
+def: "This indicates the color of a clade when rendered (the color applies to the whole clade unless overwritten by the color(s) of sub clades)." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:24:40Z
+
+[Term]
+id: ID:0000027
+name: Clade
+def: "Element Clade is used in a recursive manner to describe the topology of a phylogenetic tree. The parent branch length of a clade can be described either with the 'branch_length' element or the 'branch_length' attribute (it is not recommended to use both at the same time, though). Usage of the 'branch_length' attribute allows for a less verbose description. Element 'confidence' is used to indicate the support for a clade/parent branch. Element 'events' is used to describe such events as gene-duplications at the root node/parent branch of a clade. Element 'width' is the branch width for this clade (including parent branch). Both 'color' and 'width' elements apply for the whole clade unless overwritten in-sub clades. Attribute 'id_source' is used to link other elements to a clade (on the xml-level)." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:26:56Z
+
+[Term]
+id: ID:0000028
+name: CladeRelation
+def: "This is used to express a typed relationship between two clades. For example it could be used to describe multiple parents of a clade." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:29:50Z
+
+[Term]
+id: ID:0000029
+name: Confidence
+def: "A general purpose confidence element. For example this can be used to express the bootstrap support value of a clade (in which case the 'type' attribute is 'bootstrap')." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:30:21Z
+
+[Term]
+id: ID:0000030
+name: Date
+def: "A date associated with a clade/node. Its value can be numerical by using the 'value' element and/or free text with the 'desc' element' (e.g. 'Silurian'). If a numerical value is used, it is recommended to employ the 'unit' attribute to indicate the type of the numerical value (e.g. 'mya' for 'million years ago'). The elements 'minimum' and 'maximum' are used the indicate a range/confidence interval." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:31:25Z
+
+[Term]
+id: ID:0000031
+name: Distribution
+def: "The geographic distribution of the items of a clade (species, sequences), intended for phylogeographic applications. The location can be described either by free text in the 'desc' element and/or by the coordinates of one or more 'Points' (similar to the 'Point' element in Google's KML format) or by 'Polygons'." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:34:25Z
+
+[Term]
+id: ID:0000032
+name: DomainArchitecture
+def: "This is used describe the domain architecture of a protein. Attribute 'length' is the total length of the protein." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:34:58Z
+
+[Term]
+id: ID:0000033
+name: Events
+def: "Events at the root node of a clade (e.g. one gene duplication)." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:35:44Z
+
+[Term]
+id: ID:0000034
+name: Id
+def: "A general purpose identifier element. Allows to indicate the provider (or authority) of an identifier." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:36:30Z
+
+[Term]
+id: ID:0000035
+name: MolSeq
+def: "Element 'mol_seq' is used to store molecular sequences. The 'is_aligned' attribute is used to indicated that this molecular sequence is aligned with all other sequences in the same phylogeny for which 'is aligned' is true as well (which, in most cases, means that gaps were introduced, and that all sequences for which 'is aligned' is true must have the same length)." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:37:10Z
+
+[Term]
+id: ID:0000036
+name: Phylogeny
+def: "Element Phylogeny is used to represent a phylogeny. The required attribute 'rooted' is used to indicate whether the phylogeny is rooted or not. The attribute 'rerootable' can be used to indicate that the phylogeny is not allowed to be rooted differently (i.e. because it is associated with root dependent data, such as gene duplications). The attribute 'type' can be used to indicate the type of phylogeny (i.e. 'gene tree'). It is recommended to use the attribute 'branch_length_unit' if the phylogeny has branch lengths. Element clade is used in a recursive manner to describe the topology of a phylogenetic tree." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:41:50Z
+
+[Term]
+id: ID:0000037
+name: Point
+def: "The coordinates of a point with an optional altitude (used by element 'Distribution'). Required attributes are the 'geodetic_datum' used to indicate the geodetic datum (also called 'map datum', for example Google's KML uses 'WGS84'). Attribute 'alt_unit' is the unit for the altitude (e.g. 'meter')." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:43:14Z
+
+[Term]
+id: ID:0000038
+name: Polygon
+def: "A polygon defined by a list of 'Points' (used by element 'Distribution')." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:43:42Z
+
+[Term]
+id: ID:0000039
+name: Property
+def: "Property allows for typed and referenced properties from external resources to be attached to 'Phylogeny', 'Clade', and 'Annotation'. The value of a property is its mixed (free text) content. Attribute 'datatype' indicates the type of a property and is limited to xsd-datatypes (e.g. 'xsd:string', 'xsd:boolean', 'xsd:integer', 'xsd:decimal', 'xsd:float', 'xsd:double', 'xsd:date', 'xsd:anyURI'). Attribute 'applies_to' indicates the item to which a property applies to (e.g. 'node' for the parent node of a clade, 'parent_branch' for the parent branch of a clade). Attribute 'id_ref' allows to attached a property specifically to one element (on the xml-level). Optional attribute 'unit' is used to indicate the unit of the property. An example: <property datatype=\"xsd:integer\" ref=\"NOAA:depth\" applies_to=\"clade\" unit=\"METRIC:m\"> 200 </property>." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:44:19Z
+
+[Term]
+id: ID:0000040
+name: ProteinDomain
+def: "To represent an individual domain in a domain architecture. The name/unique identifier is described via the 'id' attribute. 'confidence' can be used to store (i.e.) E-values." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:45:19Z
+
+[Term]
+id: ID:0000041
+name: Reference
+def: "A literature reference for a clade. It is recommended to use the 'doi' attribute instead of the free text 'desc' element whenever possible." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:45:42Z
+
+[Term]
+id: ID:0000042
+name: Sequence
+def: "Element Sequence is used to represent a molecular sequence (Protein, DNA, RNA) associated with a node. 'symbol' is a short (maximal ten characters) symbol of the sequence (e.g. 'ACTM') whereas 'name' is used for the full name (e.g. 'muscle Actin'). 'location' is used for the location of a sequence on a genome/chromosome. The actual sequence can be stored with the 'mol_seq' element. Attribute 'type' is used to indicate the type of sequence ('dna', 'rna', or 'protein'). One intended use for 'id_ref' is to link a sequence to a taxonomy (via the taxonomy's 'id_source') in case of multiple sequences and taxonomies per node." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:46:34Z
+
+[Term]
+id: ID:0000043
+name: SequenceRelation
+def: "This is used to express a typed relationship between two sequences. For example it could be used to describe an orthology (in which case attribute 'type' is 'orthology')." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:47:08Z
+
+[Term]
+id: ID:0000044
+name: Taxonomy
+def: "Element Taxonomy is used to describe taxonomic information for a clade. Element 'code' is intended to store UniProt/Swiss-Prot style organism codes (e.g. 'APLCA' for the California sea hare 'Aplysia californica') or other styles of mnemonics (e.g. 'Aca'). Element 'authority' is used to keep the authority, such as 'J. G. Cooper, 1863', associated with the 'scientific_name'. Element 'id' is used for a unique identifier of a taxon (for example '6500' with 'ncbi_taxonomy' as 'provider' for the California sea hare). Attribute 'id_source' is used to link other elements to a taxonomy (on the xml-level)." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:47:49Z
+
+[Term]
+id: ID:0000045
+name: Uri
+def: "A uniform resource identifier. In general, this is expected to be an URL (for example, to link to an image on a website, in which case the 'type' attribute might be 'image' and 'desc' might be 'image of a California sea hare')." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:48:38Z
+
+[Term]
+id: ID:0000046
+name: AppliesTo
+def: "Base XSD Type: token\nvalue comes from list: {'phylogeny'|'clade'|'node'|'annotation'|'parent_branch'|'other'}." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:49:41Z
+
+[Term]
+id: ID:0000047
+name: Doi
+def: "Base XSD Type: token\npattern = [a-zA-Z0-9_\\.]+/\\S+." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:50:36Z
+
+[Term]
+id: ID:0000048
+name: EventType
+def: "Base XSD Type: token\nvalue comes from list: {'transfer'|'fusion'|'speciation_or_duplication'|'other'|'mixed'|'unassigned'}." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:51:14Z
+
+[Term]
+id: ID:0000049
+name: MolSeqChars
+def: "Base XSD Type: token\npattern = [a-zA-Z\\.\\-\\?\\*_]+" [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:51:45Z
+
+[Term]
+id: ID:0000050
+name: PropertyDataType
+def: "Base XSD Type: token\nvalue comes from list: {'xsd:string'|'xsd:boolean'|'xsd:decimal'|'xsd:float'|'xsd:double'|'xsd:duration'|'xsd:dateTime'|'xsd:time'|'xsd:date'|'xsd:gYearMonth'|'xsd:gYear'|'xsd:gMonthDay'|'xsd:gDay'|'xsd:gMonth'|'xsd:hexBinary'|'xsd:base64Binary'|'xsd:anyURI'|'xsd:normalizedString'|'xsd:token'|'xsd:integer'|'xsd:nonPositiveInteger'|'xsd:negativeInteger'|'xsd:long'|'xsd:int'|'xsd:short'|'xsd:byte'|'xsd:nonNegativeInteger'|'xsd:unsignedLong'|'xsd:unsignedInt'|'xsd:unsignedShort'|'xsd:unsignedByte'|'xsd:positiveInteger'}\n Diagram." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:52:17Z
+
+[Term]
+id: ID:0000051
+name: Rank
+def: "Base XSD Type: token\nvalue comes from list: {'domain'|'kingdom'|'subkingdom'|'branch'|'infrakingdom'|'superphylum'|'phylum'|'subphylum'|'infraphylum'|'microphylum'|'superdivision'|'division'|'subdivision'|'infradivision'|'superclass'|'class'|'subclass'|'infraclass'|'superlegion'|'legion'|'sublegion'|'infralegion'|'supercohort'|'cohort'|'subcohort'|'infracohort'|'superorder'|'order'|'suborder'|'superfamily'|'family'|'subfamily'|'supertribe'|'tribe'|'subtribe'|'infratribe'|'genus'|'subgenus'|'superspecies'|'species'|'subspecies'|'variety'|'subvariety'|'form'|'subform'|'cultivar'|'unknown'|'other'}." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:53:22Z
+
+[Term]
+id: ID:0000052
+name: SequenceRelationType
+def: "Base XSD Type: token\nvalue comes from list: {'orthology'|'one_to_one_orthology'|'super_orthology'|'paralogy'|'ultra_paralogy'|'xenology'|'unknown'|'other'}." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:54:19Z
+
+[Term]
+id: ID:0000053
+name: SequenceSymbol
+def: "Base XSD Type: token\npattern = \\S{1,10}" [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:54:48Z
+
+[Term]
+id: ID:0000054
+name: TaxonomyCode
+def: "Base XSD Type: token\npattern = [a-zA-Z0-9_]{2,10}" [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:55:34Z
+
+[Term]
+id: ID:0000055
+name: id_ref
+def: "Base XSD Type: IDREF." [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:56:19Z
+
+[Term]
+id: ID:0000056
+name: id_source
+def: "Base XSD Type: ID" [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:57:06Z
+
+[Term]
+id: ID:0000057
+name:  ref
+def: "Base XSD Type: token\npattern = [a-zA-Z0-9_]+:[a-zA-Z0-9_\\.\\-\\s]+" [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]
+is_a: ID:0000006 ! phyloXML
+creation_date: 2010-10-08T12:57:32Z
+
+[Term]
+id: ID:0000058
+name: AC
+def: "Anti-chain on edge. Used to define a reconciliation." [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:11:21Z
+
+[Term]
+id: ID:0000059
+name: D
+def: "A Duplication." [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:12:31Z
+
+[Term]
+id: ID:0000060
+name: S
+def: "Species" [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:17:57Z
+
+[Term]
+id: ID:0000061
+name: ID
+def: "The node identifier." [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:20:18Z
+
+[Term]
+id: ID:0000062
+name: NT
+def: "This is a time associated with a node, to be interpreted as the time elapsed sine the root bifurcation. Notice that it is not the time over the edge to parent." [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:23:33Z
+
+[Term]
+id: ID:0000063
+name: ET
+def: "This is a time associated with an edge, that is the time passed since the last bifurcation." [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:25:02Z
+
+[Term]
+id: ID:0000064
+name: BL
+def: "The branch length. This tag should not be used but is reserved for implementation reasons." [URL:http\://prime.sbc.su.se/primetv/manual.pdf]
+is_a: ID:0000003 ! prime
+creation_date: 2010-10-08T01:26:03Z
+

@@ -1,0 +1,8 @@
+^MYMETA.*
+.git
+.gitignore
+IPlant-TreeRec-.*
+_build
+^Build$
+blib
+.*\.bak

@@ -1,0 +1,1883 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://purl.obolibrary.org/obo/PHYLOGENY_ATTRIBUTE_phylogeny_attribute"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://purl.obolibrary.org/obo/PHYLOGENY_ATTRIBUTE_phylogeny_attribute">
+    <Prefix name="mco" IRI="http://repository.boemie.org/ontology_repository_tbox/mco.owl#"/>
+    <Prefix name="animals" IRI="http://info4302.org/ontologies/animals#"/>
+    <Prefix name="bibtex" IRI="http://purl.org/net/nknouf/ns/bibtex#"/>
+    <Prefix name="project" IRI="http://ebiquity.umbc.edu/ontology/project.owl#"/>
+    <Prefix name="edns" IRI="http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#"/>
+    <Prefix name="protege" IRI="http://protege.stanford.edu/plugins/owl/protege#"/>
+    <Prefix name="your" IRI="http://example.net/yourVocab#"/>
+    <Prefix name="OntologyTOGAFContentMetamodel" IRI="http://www.semanticweb.org/ontologies/2010/0/OntologyTOGAFContentMetamodel.owl#"/>
+    <Prefix name="oboInOwl" IRI="http://www.geneontology.org/formats/oboInOwl#"/>
+    <Prefix name="ili" IRI="http://www.loa-cnr.it/ontologies/CLO/LegalILI.owl#"/>
+    <Prefix name="ns_transport" IRI="file://www.ibm.com/WSRR/Transport#"/>
+    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="kunst" IRI="http://www.kunst.de/"/>
+    <Prefix name="oslc_blog" IRI="http://open-services.net/ns/bogus/blogs#"/>
+    <Prefix name="soc" IRI="http://www.loa-cnr.it/ontologies/SocialUnits.owl#"/>
+    <Prefix name="Ontology1259857143414" IRI="http://www.semanticweb.org/ontologies/2009/11/Ontology1259857143414.owl#"/>
+    <Prefix name="vcard" IRI="http://www.w3.org/2001/vcard-rdf/3.0#"/>
+    <Prefix name="profile" IRI="http://www.daml.org/services/owl-s/1.1/Profile.owl#"/>
+    <Prefix name="xs" IRI="http://www.w3.org/TR/2008/REC-xml-20081126#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="pub" IRI="http://ebiquity.umbc.edu/ontology/publication.owl#"/>
+    <Prefix name="paws_users" IRI="http://www.sis.pitt.edu/~paws/ont/users.rdf#"/>
+    <Prefix name="foafProfiler" IRI="http://www.foaf.udeogu.com/NS/"/>
+    <Prefix name="" IRI="http://www.owl-ontologies.com/Ontology1305000069.owl#"/>
+    <Prefix name="vol" IRI="http://ontology.example.org/VolumeControl.owl#"/>
+    <Prefix name="conc" IRI="http://www.loa-cnr.it/ontologies/Conceptualization.owl#"/>
+    <Prefix name="Ontology1273848485010" IRI="http://www.semanticweb.org/ontologies/2010/4/Ontology1273848485010.owl#"/>
+    <Prefix name="coll" IRI="http://www.loa-cnr.it/ontologies/Collections.owl#"/>
+    <Prefix name="oslc" IRI="http://open-services.net/ns/core#"/>
+    <Prefix name="f" IRI="http://www.cems.uwe.ac.uk/empdept/concept/"/>
+    <Prefix name="jms" IRI="http://jena.hpl.hp.com/2003/08/jms#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="owl11xml" IRI="http://www.w3.org/2006/12/owl11-xml#"/>
+    <Prefix name="assessment-result" IRI="http://purl.org/autism-ontology/1.0/assessment-result.owl#"/>
+    <Prefix name="gio" IRI="http://repository.boemie.org/ontology_repository_tbox/gio.owl#"/>
+    <Prefix name="Ontology1273852388816" IRI="http://www.semanticweb.org/ontologies/2010/4/Ontology1273852388816.owl#"/>
+    <Prefix name="cprog" IRI="http://www.sis.pitt.edu/~paws/ont/c_programming.rdfs#"/>
+    <Prefix name="second" IRI="http://www.w3.org/2002/03owlt/differentFrom/conclusions001#"/>
+    <Prefix name="ont" IRI="http://www.w3.org/2002/03owlt/imports/support011-A#"/>
+    <Prefix name="swrla" IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"/>
+    <Prefix name="dbpedia" IRI="http://dbpedia.org/resource/"/>
+    <Prefix name="pizza" IRI="http://www.co-ode.org/ontologies/pizza/pizza.owl#"/>
+    <Prefix name="colv" IRI="http://www.loa-cnr.it/ontologies/Collectives.owl#"/>
+    <Prefix name="www" IRI="http://www.example.org/"/>
+    <Prefix name="service" IRI="http://www.daml.org/services/owl-s/1.1/Service.owl#"/>
+    <Prefix name="daml" IRI="http://www.daml.org/2001/03/daml+oil#"/>
+    <Prefix name="example" IRI="http://purl.org/science/ontology/example/"/>
+    <Prefix name="oboContent" IRI="http://purl.org/obo/owl/"/>
+    <Prefix name="rss" IRI="http://purl.org/rss/1.0/"/>
+    <Prefix name="first" IRI="http://www.w3.org/2002/03owlt/equivalentProperty/premises001#"/>
+    <Prefix name="rvl" IRI="http://purl.org/viso/mapping/rvl/"/>
+    <Prefix name="swp" IRI="http://www.w3.org/2004/03/trix/swp-1/"/>
+    <Prefix name="nsA" IRI="http://search/neoplasm#"/>
+    <Prefix name="swrl" IRI="http://www.w3.org/2003/11/swrl#"/>
+    <Prefix name="process" IRI="http://www.daml.org/services/owl-s/1.1/Process.owl#"/>
+    <Prefix name="go" IRI="http://www.geneontology.org/go#"/>
+    <Prefix name="swrlb" IRI="http://www.w3.org/2003/11/swrlb#"/>
+    <Prefix name="ex" IRI="http://www.example.org/vocabulary#"/>
+    <Prefix name="obo" IRI="http://purl.org/obo/owl/obo#"/>
+    <Prefix name="Ontology1272153806970" IRI="http://www.semanticweb.org/ontologies/2010/3/Ontology1272153806970.owl#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="ns0" IRI="http://cohse.semanticweb.org/ontologies/people#"/>
+    <Prefix name="iol" IRI="http://www.loa-cnr.it/ontologies/IOLite.owl#"/>
+    <Prefix name="xsp" IRI="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"/>
+    <Prefix name="swrlx" IRI="http://swrl.stanford.edu/ontologies/built-ins/3.3/swrlx.owl#"/>
+    <Prefix name="owl2" IRI="http://www.w3.org/2006/12/owl2#onClass"/>
+    <Prefix name="owl2xml" IRI="http://www.w3.org/2006/12/owl2-xml#"/>
+    <Prefix name="family" IRI="http://www.example.org/family#"/>
+    <Prefix name="sqwrl" IRI="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"/>
+    <Prefix name="rating101" IRI="http://marienfeld.org/ontologies/2011/rating101.owl#"/>
+    <Prefix name="admin" IRI="http://webns.net/mvcb/"/>
+    <Prefix name="gr" IRI="http://purl.org/goodrelations/v1#"/>
+    <Prefix name="dctype" IRI="http://purl.org/dc/dcmitype/"/>
+    <Prefix name="wot" IRI="http://xmlns.com/wot/0.1/"/>
+    <Prefix name="log" IRI="http://www.w3.org/2000/10/swap/log#"/>
+    <Prefix name="autism-core" IRI="http://purl.org/autism-ontology/1.0/autism-core.owl#"/>
+    <Prefix name="CarManual" IRI="Http://labs.collibra.com/bsgtrunk/bin/view/CarManual/"/>
+    <Prefix name="dol" IRI="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#"/>
+    <Prefix name="unnamed" IRI="http://www.owl-ontologies.com/unnamed.owl#"/>
+    <Prefix name="Ontology1304513648648" IRI="http://www.semanticweb.org/ontologies/2011/4/Ontology1304513648648.owl#"/>
+    <Prefix name="oban" IRI="http://purl.org/obo/oban/"/>
+    <Prefix name="upper" IRI="http://www.co-ode.org/ontologies/roberts/upper.owl#"/>
+    <Prefix name="ical" IRI="http://www.w3.org/2002/12/cal/ical#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="food" IRI="http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#"/>
+    <Prefix name="gen" IRI="http://www.cs.umd.edu/projects/plus/DAML/onts/general1.0.daml#"/>
+    <Prefix name="MeaningAndRepresentationVocabulary" IRI="Http://www.omg.org/spec/SBVR/20070901/MeaningAndRepresentation.xml/"/>
+    <Prefix name="norpos" IRI="http://www.loa-cnr.it/ontologies/CLO/NormativePositions.owl#"/>
+    <Prefix name="zthes" IRI="http://www.zthes.org/"/>
+    <Prefix name="cc" IRI="http://web.resource.org/cc/#"/>
+    <Prefix name="owl11" IRI="http://www.w3.org/2006/12/owl11#"/>
+    <Prefix name="rdfschema" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="j.0" IRI="http://owl2.test/rules/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="inf" IRI="http://www.loa-cnr.it/ontologies/InformationObjects.owl#"/>
+    <Prefix name="person" IRI="http://ebiquity.umbc.edu/ontology/person.owl#"/>
+    <Prefix name="units" IRI="http://zeitkunst.org/fontomri/0.01/units.owl#"/>
+    <Prefix name="Ontology1273749840963" IRI="http://www.semanticweb.org/ontologies/2010/4/Ontology1273749840963.owl#"/>
+    <Prefix name="sys" IRI="http://www.loa-cnr.it/ontologies/Systems.owl#"/>
+    <Prefix name="ns" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="j.1" IRI="http://semanticbible.org/ns/2006/NTNames#"/>
+    <Prefix name="scroowl" IRI="http://www.cs.uwm.edu/~alnusair/ontologies/scro.owl#"/>
+    <Prefix name="beer" IRI="http://www.beer.com/"/>
+    <Prefix name="temporal" IRI="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"/>
+    <Prefix name="phw" IRI="http://ontology.example.org/PhysicalWorld.owl#"/>
+    <Prefix name="expr" IRI="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"/>
+    <Prefix name="autism-ext" IRI="http://purl.org/autism-ontology/1.0/autism-extension.owl#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
+    <Prefix name="vin" IRI="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"/>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/date"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">08:10:2010 16:23</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/format-version"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">1.2</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/auto-generated-by"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">OBO-Edit 2.1-beta4</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000001"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000002"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000004"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000005"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000007"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000008"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000009"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000010"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000011"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000012"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000013"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000014"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000015"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000016"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000017"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000018"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000019"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000020"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000021"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000022"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000023"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000024"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000025"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000026"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000027"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000028"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000029"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000030"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000031"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000032"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000033"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000034"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000035"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000036"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000037"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000038"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000039"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000040"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000041"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000042"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000043"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000044"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000045"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000046"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000047"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000048"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000049"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000050"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000051"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000052"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000053"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000054"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000055"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000056"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000057"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000058"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000059"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000060"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000061"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000062"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000063"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000064"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000001"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000002"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000004"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000005"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000007"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000008"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000009"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000010"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000011"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000012"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000013"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000014"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000015"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000016"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000017"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000018"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000019"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000020"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000021"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000000"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000022"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000023"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000024"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000025"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000026"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000027"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000028"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000029"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000030"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000031"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000032"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000033"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000034"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000035"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000036"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000037"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000038"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000039"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000040"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000041"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000042"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000043"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000044"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000045"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000046"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000047"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000048"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000049"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000050"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000051"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000052"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000053"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000054"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000055"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000056"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000057"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000006"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000058"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000059"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000060"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000061"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000062"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000063"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000064"/>
+        <Class IRI="http://purl.obolibrary.org/obo/ID_0000003"/>
+    </SubClassOf>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000000</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:01:14Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000000</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;NHX is a format for describing annotated phylogenies. NHX is based on the New Hampshire (NH) standard (also called \&quot;Newick tree format\&quot;).&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000000</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000000</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000001</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:08:02Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000001</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The GN tag represents the gene name.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000001</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000001</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">GN</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000002</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:10:38Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000002</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The AC value is the sequence accession for the node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000002</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000002</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">AC</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000003</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:55:30Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000003</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000003</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000004</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:12:32Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000004</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The ND tag represents the node identifier. If this tag is being used, it has to be unique within each phylogeny.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000004</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000004</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">ND</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000005</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:13:30Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000005</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The B value is the confidence value for the parent branch.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000005</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000005</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">B</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000006</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:13:09Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000006</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;phyloXML is an XML language designed to describe phylogenetic trees (or networks) and associated data.\nPhyloxml&#39; is the name of the root element. Phyloxml contains an arbitrary number of &#39;phylogeny&#39; elements (each representing one phylogeny) possibly followed by elements from other namespaces.&quot; [URL:http\://www.phyloxml.org/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000006</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000006</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000007</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:14:13Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000007</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The D value is used to represent a duplication event. This value is T&#39; if this node represents a duplication event, &#39;F&#39; if this node represents a speciation event, and &#39;?&#39; if this node represents an unknown event. The (D= tag should be replaced by Ev= tag).&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000007</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000007</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">D</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000008</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:15:39Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000008</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The Ev tag is used to indicate and event, and it replaces the =D tag. This is used to indicate the number of duplication, speciation, and gene loss events, and the type of event (transfer, fusion, root, unknown, other, speciation_duplication_loss, unassigned).&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000008</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000008</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ev</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000009</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:16:22Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000009</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The E tag represents the EC number at this node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000009</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000009</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">E</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000010</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:16:48Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000010</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The Fu tag represents the function at this node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000010</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000010</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Fu</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000011</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:17:17Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000011</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The Ds tag indicates the domain structure at this node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000011</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000011</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ds</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000012</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:18:26Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000012</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The S tag is used to indicate the species name of the species/phylum at this node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000012</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000012</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">S</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000013</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:19:21Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000013</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The T tag is used to indicate the taxonomy ID of the species/phylum at this node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000013</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000013</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">T</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000014</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:20:16Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000014</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The W tag is used to indicate the width of parent branch. This value should be an integer.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000014</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000014</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">W</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000015</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:20:45Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000015</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The C value is the color of parent branch. Color should be in the format &#39;rrr.ggg.bbb&#39; using integers to represent color value.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000015</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000015</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">C</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000016</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:21:21Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000016</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The Co boolean is used to indicate the we should collapse this node when drawing the tree (default is not to collapse).&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000016</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000016</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Co</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000017</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:21:44Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000017</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The XB tag may be used to indicate custom data associated with a branch.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000017</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000017</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">XB</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000018</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:22:13Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000018</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The XN tag may be used to indicate custom data associated with a node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000018</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000018</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">XN</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000019</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:22:50Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000019</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The O tag is used to indicate orthologous to this external node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000019</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000019</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">O</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000020</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:23:32Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000020</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The SN tag indicates the subtree neighbors of the node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000020</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000020</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">SN</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000021</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T11:24:21Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000021</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The SO tag is used to indicate super orthologous (no duplications on paths) to this external node.&quot; [URL:http\://www.phylosoft.org/NHX/]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000021</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">nhx_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000021</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">SO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000022</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:17:39Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000022</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Element Accession is used to capture the local part in a sequence identifier (e.g. &#39;P17304&#39; in &#39;UniProtKB:P17304&#39;, in which case the &#39;source&#39; attribute would be &#39;UniProtKB&#39;).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000022</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000022</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Accession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000023</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:20:03Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000023</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The annotation of a molecular sequence. It is recommended to annotate by using the optional &#39;ref&#39; attribute (some examples of acceptable values for the ref attribute: &#39;GO:0008270&#39;, &#39;KEGG:Tetrachloroethene degradation&#39;, &#39;EC:1.1.1.1&#39;). Optional element &#39;desc&#39; allows for a free text description. Optional element &#39;confidence&#39; is used to state the type and value of support for a annotation. Similarly, optional attribute &#39;evidence&#39; is used to describe the evidence for a annotation as free text (e.g. &#39;experimental&#39;). Optional element &#39;property&#39; allows for further, typed and referenced annotations from external resources.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000023</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000023</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Annotation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000024</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:22:05Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000024</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A list of binary characaters.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000024</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000024</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">BinaryCharacterList</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000025</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:23:45Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000025</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The names and/or counts of binary characters present, gained, and lost at the root of a clade.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000025</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000025</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">BinaryCharacters</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000026</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:24:40Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000026</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;This indicates the color of a clade when rendered (the color applies to the whole clade unless overwritten by the color(s) of sub clades).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000026</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000026</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">BranchColor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000027</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:26:56Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000027</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Element Clade is used in a recursive manner to describe the topology of a phylogenetic tree. The parent branch length of a clade can be described either with the &#39;branch_length&#39; element or the &#39;branch_length&#39; attribute (it is not recommended to use both at the same time, though). Usage of the &#39;branch_length&#39; attribute allows for a less verbose description. Element &#39;confidence&#39; is used to indicate the support for a clade/parent branch. Element &#39;events&#39; is used to describe such events as gene-duplications at the root node/parent branch of a clade. Element &#39;width&#39; is the branch width for this clade (including parent branch). Both &#39;color&#39; and &#39;width&#39; elements apply for the whole clade unless overwritten in-sub clades. Attribute &#39;id_source&#39; is used to link other elements to a clade (on the xml-level).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000027</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000027</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Clade</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000028</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:29:50Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000028</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;This is used to express a typed relationship between two clades. For example it could be used to describe multiple parents of a clade.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000028</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000028</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">CladeRelation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000029</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:30:21Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000029</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A general purpose confidence element. For example this can be used to express the bootstrap support value of a clade (in which case the &#39;type&#39; attribute is &#39;bootstrap&#39;).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000029</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000029</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Confidence</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000030</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:31:25Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000030</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A date associated with a clade/node. Its value can be numerical by using the &#39;value&#39; element and/or free text with the &#39;desc&#39; element&#39; (e.g. &#39;Silurian&#39;). If a numerical value is used, it is recommended to employ the &#39;unit&#39; attribute to indicate the type of the numerical value (e.g. &#39;mya&#39; for &#39;million years ago&#39;). The elements &#39;minimum&#39; and &#39;maximum&#39; are used the indicate a range/confidence interval.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000030</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000030</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000031</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:34:25Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000031</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The geographic distribution of the items of a clade (species, sequences), intended for phylogeographic applications. The location can be described either by free text in the &#39;desc&#39; element and/or by the coordinates of one or more &#39;Points&#39; (similar to the &#39;Point&#39; element in Google&#39;s KML format) or by &#39;Polygons&#39;.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000031</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000031</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Distribution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000032</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:34:58Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000032</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;This is used describe the domain architecture of a protein. Attribute &#39;length&#39; is the total length of the protein.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000032</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000032</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">DomainArchitecture</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000033</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:35:44Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000033</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Events at the root node of a clade (e.g. one gene duplication).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000033</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000033</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Events</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000034</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:36:30Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000034</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A general purpose identifier element. Allows to indicate the provider (or authority) of an identifier.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000034</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000034</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Id</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000035</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:37:10Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000035</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Element &#39;mol_seq&#39; is used to store molecular sequences. The &#39;is_aligned&#39; attribute is used to indicated that this molecular sequence is aligned with all other sequences in the same phylogeny for which &#39;is aligned&#39; is true as well (which, in most cases, means that gaps were introduced, and that all sequences for which &#39;is aligned&#39; is true must have the same length).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000035</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000035</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">MolSeq</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000036</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:41:50Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000036</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Element Phylogeny is used to represent a phylogeny. The required attribute &#39;rooted&#39; is used to indicate whether the phylogeny is rooted or not. The attribute &#39;rerootable&#39; can be used to indicate that the phylogeny is not allowed to be rooted differently (i.e. because it is associated with root dependent data, such as gene duplications). The attribute &#39;type&#39; can be used to indicate the type of phylogeny (i.e. &#39;gene tree&#39;). It is recommended to use the attribute &#39;branch_length_unit&#39; if the phylogeny has branch lengths. Element clade is used in a recursive manner to describe the topology of a phylogenetic tree.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000036</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000036</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Phylogeny</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000037</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:43:14Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000037</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The coordinates of a point with an optional altitude (used by element &#39;Distribution&#39;). Required attributes are the &#39;geodetic_datum&#39; used to indicate the geodetic datum (also called &#39;map datum&#39;, for example Google&#39;s KML uses &#39;WGS84&#39;). Attribute &#39;alt_unit&#39; is the unit for the altitude (e.g. &#39;meter&#39;).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000037</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000037</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Point</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000038</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:43:42Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000038</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A polygon defined by a list of &#39;Points&#39; (used by element &#39;Distribution&#39;).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000038</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000038</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Polygon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000039</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:44:19Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000039</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Property allows for typed and referenced properties from external resources to be attached to &#39;Phylogeny&#39;, &#39;Clade&#39;, and &#39;Annotation&#39;. The value of a property is its mixed (free text) content. Attribute &#39;datatype&#39; indicates the type of a property and is limited to xsd-datatypes (e.g. &#39;xsd:string&#39;, &#39;xsd:boolean&#39;, &#39;xsd:integer&#39;, &#39;xsd:decimal&#39;, &#39;xsd:float&#39;, &#39;xsd:double&#39;, &#39;xsd:date&#39;, &#39;xsd:anyURI&#39;). Attribute &#39;applies_to&#39; indicates the item to which a property applies to (e.g. &#39;node&#39; for the parent node of a clade, &#39;parent_branch&#39; for the parent branch of a clade). Attribute &#39;id_ref&#39; allows to attached a property specifically to one element (on the xml-level). Optional attribute &#39;unit&#39; is used to indicate the unit of the property. An example: &lt;property datatype=\&quot;xsd:integer\&quot; ref=\&quot;NOAA:depth\&quot; applies_to=\&quot;clade\&quot; unit=\&quot;METRIC:m\&quot;&gt; 200 &lt;/property&gt;.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000039</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000039</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Property</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000040</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:45:19Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000040</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;To represent an individual domain in a domain architecture. The name/unique identifier is described via the &#39;id&#39; attribute. &#39;confidence&#39; can be used to store (i.e.) E-values.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000040</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000040</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">ProteinDomain</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000041</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:45:42Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000041</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A literature reference for a clade. It is recommended to use the &#39;doi&#39; attribute instead of the free text &#39;desc&#39; element whenever possible.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000041</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000041</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Reference</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000042</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:46:34Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000042</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Element Sequence is used to represent a molecular sequence (Protein, DNA, RNA) associated with a node. &#39;symbol&#39; is a short (maximal ten characters) symbol of the sequence (e.g. &#39;ACTM&#39;) whereas &#39;name&#39; is used for the full name (e.g. &#39;muscle Actin&#39;). &#39;location&#39; is used for the location of a sequence on a genome/chromosome. The actual sequence can be stored with the &#39;mol_seq&#39; element. Attribute &#39;type&#39; is used to indicate the type of sequence (&#39;dna&#39;, &#39;rna&#39;, or &#39;protein&#39;). One intended use for &#39;id_ref&#39; is to link a sequence to a taxonomy (via the taxonomy&#39;s &#39;id_source&#39;) in case of multiple sequences and taxonomies per node.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000042</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000042</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Sequence</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000043</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:47:08Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000043</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;This is used to express a typed relationship between two sequences. For example it could be used to describe an orthology (in which case attribute &#39;type&#39; is &#39;orthology&#39;).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000043</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000043</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">SequenceRelation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000044</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:47:49Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000044</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Element Taxonomy is used to describe taxonomic information for a clade. Element &#39;code&#39; is intended to store UniProt/Swiss-Prot style organism codes (e.g. &#39;APLCA&#39; for the California sea hare &#39;Aplysia californica&#39;) or other styles of mnemonics (e.g. &#39;Aca&#39;). Element &#39;authority&#39; is used to keep the authority, such as &#39;J. G. Cooper, 1863&#39;, associated with the &#39;scientific_name&#39;. Element &#39;id&#39; is used for a unique identifier of a taxon (for example &#39;6500&#39; with &#39;ncbi_taxonomy&#39; as &#39;provider&#39; for the California sea hare). Attribute &#39;id_source&#39; is used to link other elements to a taxonomy (on the xml-level).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000044</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000044</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Taxonomy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000045</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:48:38Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000045</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A uniform resource identifier. In general, this is expected to be an URL (for example, to link to an image on a website, in which case the &#39;type&#39; attribute might be &#39;image&#39; and &#39;desc&#39; might be &#39;image of a California sea hare&#39;).&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000045</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000045</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Uri</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000046</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:49:41Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000046</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\nvalue comes from list: {&#39;phylogeny&#39;|&#39;clade&#39;|&#39;node&#39;|&#39;annotation&#39;|&#39;parent_branch&#39;|&#39;other&#39;}.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000046</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000046</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">AppliesTo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000047</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:50:36Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000047</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\npattern = [a-zA-Z0-9_\\.]+/\\S+.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000047</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000047</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Doi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000048</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:51:14Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000048</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\nvalue comes from list: {&#39;transfer&#39;|&#39;fusion&#39;|&#39;speciation_or_duplication&#39;|&#39;other&#39;|&#39;mixed&#39;|&#39;unassigned&#39;}.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000048</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000048</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">EventType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000049</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:51:45Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000049</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\npattern = [a-zA-Z\\.\\-\\?\\*_]+&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000049</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000049</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">MolSeqChars</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000050</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:52:17Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000050</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\nvalue comes from list: {&#39;xsd:string&#39;|&#39;xsd:boolean&#39;|&#39;xsd:decimal&#39;|&#39;xsd:float&#39;|&#39;xsd:double&#39;|&#39;xsd:duration&#39;|&#39;xsd:dateTime&#39;|&#39;xsd:time&#39;|&#39;xsd:date&#39;|&#39;xsd:gYearMonth&#39;|&#39;xsd:gYear&#39;|&#39;xsd:gMonthDay&#39;|&#39;xsd:gDay&#39;|&#39;xsd:gMonth&#39;|&#39;xsd:hexBinary&#39;|&#39;xsd:base64Binary&#39;|&#39;xsd:anyURI&#39;|&#39;xsd:normalizedString&#39;|&#39;xsd:token&#39;|&#39;xsd:integer&#39;|&#39;xsd:nonPositiveInteger&#39;|&#39;xsd:negativeInteger&#39;|&#39;xsd:long&#39;|&#39;xsd:int&#39;|&#39;xsd:short&#39;|&#39;xsd:byte&#39;|&#39;xsd:nonNegativeInteger&#39;|&#39;xsd:unsignedLong&#39;|&#39;xsd:unsignedInt&#39;|&#39;xsd:unsignedShort&#39;|&#39;xsd:unsignedByte&#39;|&#39;xsd:positiveInteger&#39;}\n Diagram.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000050</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000050</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">PropertyDataType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000051</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:53:22Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000051</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\nvalue comes from list: {&#39;domain&#39;|&#39;kingdom&#39;|&#39;subkingdom&#39;|&#39;branch&#39;|&#39;infrakingdom&#39;|&#39;superphylum&#39;|&#39;phylum&#39;|&#39;subphylum&#39;|&#39;infraphylum&#39;|&#39;microphylum&#39;|&#39;superdivision&#39;|&#39;division&#39;|&#39;subdivision&#39;|&#39;infradivision&#39;|&#39;superclass&#39;|&#39;class&#39;|&#39;subclass&#39;|&#39;infraclass&#39;|&#39;superlegion&#39;|&#39;legion&#39;|&#39;sublegion&#39;|&#39;infralegion&#39;|&#39;supercohort&#39;|&#39;cohort&#39;|&#39;subcohort&#39;|&#39;infracohort&#39;|&#39;superorder&#39;|&#39;order&#39;|&#39;suborder&#39;|&#39;superfamily&#39;|&#39;family&#39;|&#39;subfamily&#39;|&#39;supertribe&#39;|&#39;tribe&#39;|&#39;subtribe&#39;|&#39;infratribe&#39;|&#39;genus&#39;|&#39;subgenus&#39;|&#39;superspecies&#39;|&#39;species&#39;|&#39;subspecies&#39;|&#39;variety&#39;|&#39;subvariety&#39;|&#39;form&#39;|&#39;subform&#39;|&#39;cultivar&#39;|&#39;unknown&#39;|&#39;other&#39;}.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000051</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000051</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Rank</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000052</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:54:19Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000052</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\nvalue comes from list: {&#39;orthology&#39;|&#39;one_to_one_orthology&#39;|&#39;super_orthology&#39;|&#39;paralogy&#39;|&#39;ultra_paralogy&#39;|&#39;xenology&#39;|&#39;unknown&#39;|&#39;other&#39;}.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000052</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000052</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">SequenceRelationType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000053</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:54:48Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000053</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\npattern = \\S{1,10}&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000053</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000053</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">SequenceSymbol</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000054</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:55:34Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000054</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\npattern = [a-zA-Z0-9_]{2,10}&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000054</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000054</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">TaxonomyCode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000055</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:56:19Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000055</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: IDREF.&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000055</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000055</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">id_ref</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000056</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:57:06Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000056</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: ID&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000056</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000056</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">id_source</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000057</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T12:57:32Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000057</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Base XSD Type: token\npattern = [a-zA-Z0-9_]+:[a-zA-Z0-9_\\.\\-\\s]+&quot; [URL:http\://www.phyloxml.org/documentation/version_1.10/phyloxml.xsd.html]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000057</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">phyloXML_element</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000057</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">ref</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000058</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:11:21Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000058</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Anti-chain on edge. Used to define a reconciliation.&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000058</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000058</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">AC</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000059</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:12:31Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000059</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;A Duplication.&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000059</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000059</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">D</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000060</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:17:57Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000060</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Species&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000060</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000060</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">S</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000061</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:20:18Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000061</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The node identifier.&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000061</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000061</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">ID</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000062</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:23:33Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000062</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;This is a time associated with a node, to be interpreted as the time elapsed sine the root bifurcation. Notice that it is not the time over the edge to parent.&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000062</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000062</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">NT</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000063</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:25:02Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000063</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;This is a time associated with an edge, that is the time passed since the last bifurcation.&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000063</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000063</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">ET</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/creation_date"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000064</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">2010-10-08T01:26:03Z</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/def"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000064</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;The branch length. This tag should not be used but is reserved for implementation reasons.&quot; [URL:http\://prime.sbc.su.se/primetv/manual.pdf]</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.obolibrary.org/obo/namespace"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000064</IRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">prime_tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfschema:label"/>
+        <IRI>http://purl.obolibrary.org/obo/ID_0000064</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">BL</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.1.1753) http://owlapi.sourceforge.net -->
