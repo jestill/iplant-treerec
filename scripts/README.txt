@@ -130,3 +130,5 @@ Example use:
 For full set of options use the following to view program manual:
    /tr_import_reconciliation_set.pl --man
 
+5. Import reconciled gene trees
+
