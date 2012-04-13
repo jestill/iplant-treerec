@@ -4,6 +4,9 @@
  James Estill (JamesEstill @ gmail.com)
 +-----------------------------------------------------------+
 
+Documentation also available at
+https://pods.iplantcollaborative.org/wiki/display/iptol/Populating+the+Database
+
 Given a database that has been loaded with the necessary 
 ontologies, the following process is used to reconcile 
 gene trees to species tree and load the resulting reconciled
@@ -83,6 +86,75 @@ This can be checked in mysql as:
   +-------------------------------+
   38 rows in set (0.00 sec)
 
++-----------------------------------------------------------+
+ POPULATE CONTROLLED VOCABULARY TABLES
++-----------------------------------------------------------+
+
+Ontologies are in ontology dir relative to this README file at
+../ontology/
+
+
+The relationship ontology must first be loaded into the database to allow 
+for other ontologies to use these terms.
+
+The available tools for loading ontologies into the database requires 
+the conversion of the obo file to chadoxml format with the go2chadoxml 
+program from GMOD (http://gmod.org/wiki/XORT#go2chadoxml). This program takes 
+a valid OBO format file as input, and converts it to a chado.xml file. For 
+example to convert the phylogeny ontology to chado xml:
+
+go2chadoxml phylo_ontology.obo > phylo_ontology.chado.xml
+
+The resulting chadoxml file can then be loaded into the database using 
+stag-storenode.pl available from CPAN.
+
+Some relevant ontologies have been converted from OBO to xml and are
+located in the ontology directory.
+
+The resulting chadoxml files can then be loaded into the database 
+using stag-storenode.pl available from CPAN.
+
+This program accepts the following options:
+
+ -d 
+ DSN for connecting to the database. This should be in the format of 
+ 'dbi:mysql:dbname=[DATABASENAME];host=[HOSTREF]'
+--user 
+  user name for connecting to the database
+--password 
+  password for the database connection
+
+For example, to load the file for the phylogeny ontology (phylo_ontology.xml):
+
+ stag-storenode.pl -d 'dbi:mysql:dbname=tr_test;host=localhost' 
+    --user [USERNAME] --password [PASSWORD] phylo_ontology.xml
+
+For more information on loading custom ontologies into this framework, see 
+the documentation for how to load a custom ontology into Chado at
+http://gmod.org/wiki/Load_a_custom_ontology_in_Chado.
+
+Loading Term Relationships into the Database
+An overview of the use of transitive closure and deductive closure for 
+GO terms is available from the gene ontology wiki
+http://wiki.geneontology.org/index.php/Transitive_closur. 
+In the TR database, the relationships among terms in the cvterm table is 
+stored in the cvtermpath table. It is possible to use the code from GMOD 
+to directly generative transitive closure links from the data in the database. 
+This program requires Perl 5.10.0 which can be a limit on its use.
+
+The current TR database does not use GMOD tools for computing relationship 
+among terms in the database, but makes use of a precomputed transitive 
+closure table for GO available at 
+http://www.geneontology.org/scratch/transitive_closure/go_transitive_closure.links. 
+This precomputed file is a result of running obo2linkfile on core GO terms. 
+This program is included with the download of the OBO-Edit program.  It is 
+possible to parse out the is_a links from this file, and then load only the 
+is_a relationships to the database. The program 
+tr_import_go_transitive_closure.pl (available from svn) can then be used to 
+import the text file into the cvtermpath table.
+
+The use of these these cvtermpath table to query the database for GO terms 
+that includes all child terms of a parent query term is described elsewhere.
 
 +-----------------------------------------------------------+
   1. IMPORT SPECIES TREE
