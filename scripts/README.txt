@@ -10,6 +10,81 @@ gene trees to species tree and load the resulting reconciled
 trees to the database.
 
 +-----------------------------------------------------------+
+ CREATE A BLANK DATABASE
++-----------------------------------------------------------+
+
+Log on to mysql as user with create privelges, and then
+create a blank databse:
+
+  mysql> create database tr_deep_green;
+
++-----------------------------------------------------------+
+ LOAD TR TABLES TO DATABASE
++-----------------------------------------------------------+
+
+The SQL code to create the database exists at ../schema/
+relative to this directory. From this dir create the tables
+in the database using mysql command line program For example
+for the database named tr_deep_green created above:
+ 
+ mysql tr_deep_green < tr_schema_mysql.sql -p -u USERNAME
+
+This should created all of the tables, indices and dependencies needed.
+
+This can be checked in mysql as:
+
+  mysql> use tr_deep_green;
+  Reading table information for completion of table and column names
+  You can turn off this feature to get a quicker startup with -A
+  
+  Database changed
+  mysql> show tables;
+  +-------------------------------+
+  | Tables_in_tr_deep_green       |
+  +-------------------------------+
+  | cv                            |
+  | cvterm                        |
+  | cvterm_dbxref                 |
+  | cvterm_relationship           |
+  | cvtermpath                    |
+  | cvtermprop                    |
+  | cvtermsynonym                 |
+  | db                            |
+  | dbxref                        |
+  | dbxrefprop                    |
+  | family                        |
+  | family_attribute              |
+  | family_member                 |
+  | member                        |
+  | member_attribute              |
+  | protein_tree                  |
+  | protein_tree_attribute        |
+  | protein_tree_hmmprofile       |
+  | protein_tree_member           |
+  | protein_tree_member_score     |
+  | protein_tree_node             |
+  | protein_tree_node_attribute   |
+  | protein_tree_node_path        |
+  | protein_tree_stable_id        |
+  | reconciliation                |
+  | reconciliation_attribute      |
+  | reconciliation_node           |
+  | reconciliation_node_attribute |
+  | reconciliation_set            |
+  | reconciliation_set_attribute  |
+  | sequence                      |
+  | source                        |
+  | source_attribute              |
+  | species_tree                  |
+  | species_tree_attribute        |
+  | species_tree_node             |
+  | species_tree_node_attribute   |
+  | species_tree_node_path        |
+  +-------------------------------+
+  38 rows in set (0.00 sec)
+
+
++-----------------------------------------------------------+
   1. IMPORT SPECIES TREE
 +-----------------------------------------------------------+
 
@@ -130,5 +205,6 @@ Example use:
 For full set of options use the following to view program manual:
    /tr_import_reconciliation_set.pl --man
 
-5. Import reconciled gene trees
-
++-----------------------------------------------------------+
+ 5. Import reconciled gene trees
++-----------------------------------------------------------+
