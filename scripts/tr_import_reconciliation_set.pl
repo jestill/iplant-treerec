@@ -1,17 +1,13 @@
 #!/usr/bin/perl -w
-# Moved perl to 
-#/opt/local/var/macports/software/perl5.8/5.8.9_3/opt/local/bin/perl -w
-#
-
 #-----------------------------------------------------------+
 #                                                           |
-# tr_import_reconciled_tree.pl                              |
+# tr_import_reconciled_set.pl                               |
 #                                                           |
 #-----------------------------------------------------------+
 #                                                           |
 # CONTACT: JamesEstill_at_gmail.com                         |
 # STARTED: 03/12/2012                                       |
-# UPDATED: 03/20/2012                                       |
+# UPDATED: 04/12/2012                                       |
 #                                                           |
 # DESCRIPTION:                                              | 
 #  Import reconciliation set data and loads to the          |
@@ -30,6 +26,14 @@
 #
 # TEST USE:
 # ./tr_import_reconciliation_set.pl -i sandbox/test_reconciliation_set.txt -n test -u jestill --host localhost --dbname tr_test --driver mysql --name test_set --description "Test set for debug"
+#
+# The input option has been written to accept dirs of files
+# but the metadata (name, etc.) would need to be parsed from
+# comment tagged header information within each file.
+# TO DO:
+# Check that name does not already exist in the database and throw
+# error if that is the case. This will prevent using overlapping
+# names in the reconciled tree database.
 
 #-----------------------------+
 # INCLUDES                    |
@@ -91,8 +95,6 @@ my $show_usage = 0;
 my $show_man = 0;
 my $show_version = 0;
 my $do_test = 0;                  # Run the program in test mode
-my $do_convert_pr2db =0;             # Convert species nodes from prime ids
-                                  # to ids as used in the database
 
 #-----------------------------+
 # COMMAND LINE OPTIONS        |
@@ -116,7 +118,6 @@ my $ok = GetOptions(# REQUIRED
 		    "format=s"    => \$format,
 		    "q|quiet"     => \$quiet,
 		    "verbose"     => \$verbose,
-		    "convert-id"  => \$do_convert_pr2db,
 		    # ADDITIONAL INFORMATION
 		    "usage"       => \$show_usage,
 		    "test"        => \$do_test,
@@ -627,21 +628,18 @@ This documentation refers to tr_import_reconciliation_set.pl
 
 =head2 Usage
 
-    tr_import_reconciliation_set.pl -
+    tr_import_reconciliation_set.pl -i infile.txt -n "Set Name"
 
 =head2 Required Arguments
 
-    --infile, -i     # Path to the reconciled file in PRIME nhx format
-    OR
-    --indir, -i       # Path to the directory of reconciled files
-                      # These must be in PRIME format
-    -s                # Name of the species tree in the reconciliation
-                      # This tree should already exist in the database
+    --infile, -i     # Path to the reconciliation set description file.
+    --name, -n       # Name of the reconciliation set.
 
 =head1 DESCRIPTION
 
-Imports reconciled gene trees in PRIME nhx format to the tree reconciliation
-database.
+Imports metadata for tree reconciliation into the database using a 
+simple tab delimited text file as input that descripts reconciliation
+methods using the Tree Reconciliation Onotlogy (TRON).
 
 =head1 REQUIRED ARGUMENTS
 
@@ -649,15 +647,16 @@ database.
 
 =item -i, --infile
 
-Path of the reconciled tree file.
+Path of the file description the tree reconciliation methodology used.
 
-=item -s, --species
+=item -n, --name
 
-Name of the species tree in the database that is used for the reconciliation.
+Name of the reconciliation set. This should be a unique name within
+the scope of the tree reconciliation database.
 
 =item --driver
 
-The database driver to use. This will mysql.
+The database driver to use. This will be mysql by default.
 
 =item --dbname
 
@@ -683,6 +682,11 @@ prompted for.
 =head1 OPTIONS
 
 =over 2
+
+=item --description
+
+Short (<255 character) description of the tree reconciliation set. For
+example "TREEBEST with default parameters".
 
 =item --usage
 
@@ -713,30 +717,11 @@ The following are examples of how to use this script
 
 =head2 Import Single Tree
 
-Before a gene tree can be imported, the species tree that the gene tree
-is reconciled to must already exist in the database. To import a single 
-gene tree named pg17890_reconciled.nhx that has been reconciled against 
-the species tree named 'bowers_rosids':
+The following example shows importing reconciliation set data.
 
-  ./tr_import_reconciled_tree.pl -i sandbox/pg17890_reconciled.nhx 
-                                 --format prime -s bowers_rosids
-                                 --dbname tr_test --driver mysql 
-                                 -s bowers_rosids 
-
-=head2 Import Directory of Reconciled Trees
-
-It is also possible to import all reconciled trees in a single directory.
-The species tree that the gene trees are reconciled to must already
-exist in the database, and all reconciled trees in the directory
-must be reconciled to the same species tree.
-For example, to import all reconciled trees in the directory
-'my_reconciled_trees' that were reconciled to the species tree
-named 'bowers_rosids':
-
-  ./tr_import_reconciled_tree.pl -i my_reconciled_trees/ 
-                                 --format prime -s bowers_rosids
-                                 --dbname tr_test --driver mysql 
-                                 -s bowers_rosids 
+  ./tr_import_reconciliation_set.pl -i sandbox/test_reconciliation_set.txt \
+            -n test -u jestill --host localhost --dbname tr_test \
+            --driver mysql --name test_set --description "Test set for debug"
 
 =head1 DIAGNOSTICS
 
@@ -824,8 +809,43 @@ L<https://pods.iplantcollaborative.org/wiki/display/iptol/1.0+Architecture>
 
 =head1 LICENSE
 
-Simplified BSD License:
-http://tinyurl.com/iplant-tr-license
+Copyright (c) 2012, The Arizona Board of Regents on behalf of 
+The University of Arizona.
+
+All rights reserved.
+
+Developed by: iPlant Collaborative as a collaboration between
+participants at BIO5 at The University of Arizona (the primary hosting
+institution), Cold Spring Harbor Laboratory, The University of Texas at
+Austin, and individual contributors. Find out more at 
+http://www.iplantcollaborative.org/.
+
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are
+met:
+
+ * Redistributions of source code must retain the above copyright 
+   notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright 
+   notice, this list of conditions and the following disclaimer in the 
+   documentation and/or other materials provided with the distribution.
+ * Neither the name of the iPlant Collaborative, BIO5, The University 
+   of Arizona, Cold Spring Harbor Laboratory, The University of Texas at 
+   Austin, nor the names of other contributors may be used to endorse or 
+   promote products derived from this software without specific prior 
+   written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =head1 AUTHOR
 
@@ -835,9 +855,9 @@ James C. Estill E<lt>JamesEstill at gmail.comE<gt>
 
 STARTED: 09/15/2010
 
-UPDATED: 03/29/2011
+UPDATED: 04/12/2012
 
-VERSION: $Rev: 603 $
+VERSION: 0.1
 
 =cut
 
