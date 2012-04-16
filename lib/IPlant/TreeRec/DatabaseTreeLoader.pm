@@ -1,5 +1,5 @@
 package IPlant::TreeRec::DatabaseTreeLoader;
-
+#TODO: Need to refactor. Don't use NHX
 use 5.008000;
 
 use strict;
@@ -71,7 +71,7 @@ use Readonly;
     sub load_gene_tree {
         my ( $self, $family_name ) = @_;
 
-        # Get the databae handle.
+        # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
 
         # Get the protein tree from the database.
@@ -190,8 +190,9 @@ use Readonly;
             : $node->id();
         $node->id($id);
 
-        # Add any attributes that are associated with the node.
-        $self->_add_gene_tree_node_attributes( $node, $database_node );
+#TODO: Refactor to use reconciliation_set_id
+#        # Add any attributes that are associated with the node.
+#        $self->_add_gene_tree_node_attributes( $node, $database_node );
 
         # Add the ID attribute.
         $node->nhx_tag( { ID => $database_node->node_id() } );
@@ -273,9 +274,9 @@ use Readonly;
         # Add the ID attribute.
         my $node_id = $database_node->species_tree_node_id();
         $node->nhx_tag( { ID => $node_id } );
-
-        # Add the duplication counts for the node.
-        $self->_add_duplication_counts( $node, $node_id );
+#TODO: Refactor to use reconciliation_set_id
+#        # Add the duplication counts for the node.
+#       $self->_add_duplication_counts( $node, $node_id );
 
         return $node;
     }
