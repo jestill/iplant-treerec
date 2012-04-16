@@ -1,3 +1,5 @@
+#TODO: Refactor to use remote Blast services
+
 package IPlant::TreeRec::BlastArgs;
 
 use 5.008000;

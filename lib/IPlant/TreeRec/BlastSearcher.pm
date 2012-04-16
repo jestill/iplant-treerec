@@ -1,3 +1,4 @@
+#TODO: Refactor to use remote Blast services
 package IPlant::TreeRec::BlastSearcher;
 
 use 5.008000;

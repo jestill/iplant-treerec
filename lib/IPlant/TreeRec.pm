@@ -133,9 +133,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
-    # Usage      : $results_ref = $treerec->go_search( $search_string,
-    #                  $species_tree_name );
+    # Usage      : $results_ref = $treerec->general_go_search( $search_string,
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Performs a search for a GO term or a GO accession
     #              number.
@@ -143,11 +144,11 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Returns    : Information about the matching gene families.
     #
     # Parameters : $search_string     - the string to search for.
-    #              $species_tree_name - the name of the speices tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub general_go_search {
-        my ( $self, $search_string, $species_tree_name ) = @_;
+        my ( $self, $search_string, $reconciliation_set_id ) = @_;
         my $results_ref;
 
         # Remove whitespaces from the beginning and end of search string
@@ -165,7 +166,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
             $search_string = sprintf( "%07d", $search_string );
 
             $results_ref = $self->_do_gene_family_search( 'GoAccessionSearch',
-                $search_string, $species_tree_name );
+                $search_string, $reconciliation_set_id );
             return $results_ref;
         }
 
@@ -193,63 +194,67 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
 
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $results_ref = $treerec->go_search( $search_string,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Performs a GO search.
     #
     # Returns    : Information about the matching gene families.
     #
     # Parameters : $search_string     - the string to search for.
-    #              $species_tree_name - the name of the speices tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub go_search {
-        my ( $self, $search_string, $species_tree_name ) = @_;
+        my ( $self, $search_string, $reconciliation_set_id ) = @_;
         my $results_ref
             = $self->_do_gene_family_search( 'GoSearch', "\%$search_string\%",
-            $species_tree_name );
+            $reconciliation_set_id );
         return $results_ref;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $results_ref = $treerec->go_accession_search(
-    #                  $search_string, $species_tree_name );
+    #                  $search_string, $reconciliation_set_id );
     #
     # Purpose    : Performs a search by GO accession.
     #
     # Returns    : Information about the matching gene families.
     #
     # Parameters : $search_string     - the string to search for.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub go_accession_search {
-        my ( $self, $search_string, $species_tree_name ) = @_;
+        my ( $self, $search_string, $reconciliation_set_id ) = @_;
         my $results_ref = $self->_do_gene_family_search( 'GoAccessionSearch',
-            $search_string, $species_tree_name );
+            $search_string, $reconciliation_set_id );
         return $results_ref;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $results_ref = $treerec->gene_id_search( $search_string,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Performs a gene identifier search.
     #
     # Returns    : Information about the matching gene families.
     #
     # Parameters : $search_string     - the string to search for.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub gene_id_search {
-        my ( $self, $search_string, $species_tree_name ) = @_;
+        my ( $self, $search_string, $reconciliation_set_id ) = @_;
         return $self->_do_gene_family_search( 'GeneIdSearch', $search_string,
-            $species_tree_name );
+            $reconciliation_set_id );
     }
 
+#OK
     ##########################################################################
     # Usage      : $go_cloud = $treerec->generate_go_cloud($family_name);
     #
@@ -270,9 +275,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return { cloud => $cloud };
     }
 
+#TODO: Refactor to use $reconciliation_set_id 
     ##########################################################################
     # Usage      : $results_ref = $treerec->get_gene_family_summary(
-    #                  $family_name, $species_tree_name );
+    #                  $family_name, $reconciliation_set_id );
     #
     # Purpose    : Gets the summary information for the given gene family
     #              name.  The results of this method are returned as a single-
@@ -284,25 +290,26 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #              doesn't exist.
     #
     # Parameters : $family_name       - the name of the gene family.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub get_gene_family_summary {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
         # Fetch the database handle.
         my $dbh = $dbh_of{ ident $self };
 
-        # Use the default species tree if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+#TODO: Refactor. What is default family?
+#        # Use the default species tree if one wasn't provided.
+#        if ( !defined $species_tree_name ) {
+#            $species_tree_name = $default_species_tree_of{ ident $self };
+#        }
 
         # Load the results.
         my @families = ( { name => $family_name } );
         eval {
             $self->_load_gene_family_summaries( \@families,
-                $species_tree_name );
+                $reconciliation_set_id );
         };
         if ( my $e = IPlant::TreeRec::GeneFamilyNotFoundException->caught() )
         {
@@ -312,9 +319,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return \@families;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $results_ref = $treerec->get_gene_family_details(
-    #                  $family_name, $species_tree_name );
+    #                  $family_name, $reconciliation_set_id );
     #
     # Purpose    : Retrieves the gene family details for the given gene family
     #              name.
@@ -322,24 +330,25 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Returns    : Detailed information about the gene family.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the reconciliation set id.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     sub get_gene_family_details {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
-        # Use the default species tree if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+#TODO: Refactor. What is default family?
+#        # Use the default species tree if one wasn't provided.
+#        if ( !defined $species_tree_name ) {
+#            $species_tree_name = $default_species_tree_of{ ident $self };
+#        }
 
         # Fetch the tree loader and family info retreiver.
         my $info = $gene_family_info_of{ ident $self };
 
         # Load the detailed information for the gene family.
         my $details_ref
-            = $info->get_details( $family_name, $species_tree_name );
+            = $info->get_details( $family_name, $reconciliation_set_id );
 
         # Fetch the list of URL suffixes for file retrieval.
         my $file_retriever = $file_retriever_of{ ident $self };
@@ -1033,9 +1042,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return uniq @family_names;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $results_ref = $treerec->_do_gene_family_search( $type,
-    #                  $search_string, $species_tree_name );
+    #                  $search_string, $reconciliation_set_id );
     #
     # Purpose    : Performs a gene family search.
     #
@@ -1043,16 +1053,16 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #
     # Parameters : $type              - the type of search to perform.
     #              $search_string     - the string to search for.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub _do_gene_family_search {
-        my ( $self, $type, $search_string, $species_tree_name ) = @_;
-
-        # Use the default species tree name if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+        my ( $self, $type, $search_string, $reconciliation_set_id ) = @_;
+#TODO: Switch for 'default' $recnciliation_set_id
+#        # Use the default species tree name if one wasn't provided.
+#        if ( !defined $species_tree_name ) {
+#            $species_tree_name = $default_species_tree_of{ ident $self };
+#        }
 
         # Perform the search.
         my $dbh     = $dbh_of{ ident $self };
@@ -1063,7 +1073,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         @results = map {
             { $_->get_columns() }
         } @results;
-        $self->_load_gene_family_summaries( \@results, $species_tree_name );
+        $self->_load_gene_family_summaries( \@results, $reconciliation_set_id );
 
         # Convert the hash keys to camel-case.
         @results = map { camel_case_keys($_) } @results;
@@ -1071,6 +1081,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return { 'families' => \@results };
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $updated_results_ref
     #                  = $treerec->_load_gene_family_summaries( $results_ref,
@@ -1089,7 +1100,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #
     # Throws     : No exceptions.
     sub _load_gene_family_summaries {
-        my ( $self, $results_ref, $species_tree_name ) = @_;
+        my ( $self, $results_ref, $reconciliation_set_id ) = @_;
 
         # Fetch the tree loader and family info retreiver.
         my $info = $gene_family_info_of{ ident $self };
@@ -1098,7 +1109,8 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         for my $result_ref ( @{$results_ref} ) {
             my $family_name = $result_ref->{name};
             my $summary_ref
-                = $info->get_summary( $family_name, $species_tree_name );
+                = $info->get_summary( $family_name, $reconciliation_set_id ); #TODO: Refactor to use $reconciliation_set_id - DONE
+                
             $result_ref = { %{$result_ref}, %{$summary_ref} };
         }
 
