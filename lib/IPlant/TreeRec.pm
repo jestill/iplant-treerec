@@ -364,9 +364,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return camel_case_keys($details_ref);
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $results_ref = $treerec->get_gene_tree_events(
-    #                  $family_name, $species_tree_name );
+    #                  $family_name, $reconciliation_set_id );
     #
     # Purpose    : Retrieves the evolutionary events on the given gene family
     #              name.
@@ -374,24 +375,25 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Returns    : Events.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the name of the species tree.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     sub get_gene_tree_events {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
-        # Use the default species tree if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+#        # Use the default species tree if one wasn't provided.
+#        if ( !defined $species_tree_name ) {
+#            $species_tree_name = $default_species_tree_of{ ident $self };
+#        }
 
         # Fetch the tree loader and family info retreiver.
         my $info = $gene_tree_events_of{ ident $self };
 
+
         # Load the events information for the gene family.
         my $details_ref
-            = $info->get_events( $family_name, $species_tree_name );
+            = $info->get_events( $family_name, $reconciliation_set_id ); #in GeneTreeEvents
 
         # Formats for output
         $details_ref
@@ -400,6 +402,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return camel_case_keys($details_ref);
     }
 
+#TODO: Refactor to use $reconciliation_set_id - In Progress
     ##########################################################################
     # Usage      : $text = $treerec->get_gene_tree_file($json);
     #

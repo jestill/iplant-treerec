@@ -211,7 +211,7 @@ Readonly my %EMPTY_SUMMARY => (
         my $rec = eval {
 #TODO: Refactor to use $reconciliation_set_id - CHECK
             $dbh->resultset('Reconciliation')
-                ->for_set_id_and_family( $reconciliation_set_id,
+                ->for_reconciliation_set_id_and_family( $reconciliation_set_id,
                 $family_name );
         };
         return if !defined $rec;

@@ -34,7 +34,7 @@ sub for_name {
 #TODO: Refactor to use $reconciliation_set_id - CHECK
 ##########################################################################
 # Usage      : $species_tree = $dbh->resultset('SetID')
-#                  ->for_set_id($reconciliation_set_id);
+#                  ->for_reconciliation_set_id($reconciliation_set_id);
 #
 # Purpose    : Finds the species tree belonging to the given reconciliation set id.
 #
@@ -43,7 +43,7 @@ sub for_name {
 # Parameters : $reconciliation_set_id - the id fo the reconciliation set.
 #
 # Throws     : IPlant::TreeRec::TreeNotFoundException.
-sub for_set_id {
+sub for_reconciliation_set_id {
     my ( $self, $reconciliation_set_id ) = @_;
 
     # Find the tree.

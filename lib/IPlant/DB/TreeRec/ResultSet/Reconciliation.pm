@@ -41,7 +41,7 @@ sub for_species_tree_and_family {
 
 ##########################################################################
 # Usage      : $reconciliation = $dbh->resultset('Reconciliation')
-#                  ->for_set_id_and_family( $reconciliation_set_id,
+#                  ->for_reconciliation_set_id_and_family( $reconciliation_set_id,
 #                  $family_name );
 #
 # Purpose    : Finds the reconciliation for the given reconciliation set and
@@ -53,7 +53,7 @@ sub for_species_tree_and_family {
 #              $family_name       - the name of the gene family.
 #
 # Throws     : IPlant::TreeRec::ReconciliationNotFoundException.
-sub for_set_id_and_family {
+sub for_reconciliation_set_id_and_family {
     my ( $self, $reconciliation_set_id, $family_name ) = @_;
 
     # Find the tree.
