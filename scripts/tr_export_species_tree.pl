@@ -19,6 +19,7 @@
 #                                                           |
 # LICENSE:                                                  |
 #  Simplified BSD License                                   |
+#  http://tinyurl.com/iplant-tr-license                     |
 #                                                           |
 #-----------------------------------------------------------+
 #
