@@ -67,22 +67,23 @@ memoize( '_get_speciations' );
         return;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $events = $info->get_events( $family_name,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Classifies the events on a gene tree.
     #
     # Returns    : The events.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the gene family tree.
+    #              $reconciliation_set_id - the gene family tree.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::ReconciliationNotFoundException
     sub get_events {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
@@ -90,9 +91,9 @@ memoize( '_get_speciations' );
          # Get the gene family, species tree and reconciliation.       
         my $family = $dbh->resultset('Family')->for_name($family_name);
        	my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_name($species_tree_name);
+            = $dbh->resultset('SpeciesTree')->for_set_id($reconciliation_set_id);
         my $rec = $dbh->resultset('Reconciliation')
-        	->for_species_tree_and_family( $species_tree_name, $family_name );
+        	->for_reconciliation_set_id_and_family( $reconciliation_set_id, $family_name );
         
         # Obtain the speciation and duplication events.
       	my $event_list = $self->_list_events( $rec->id() );

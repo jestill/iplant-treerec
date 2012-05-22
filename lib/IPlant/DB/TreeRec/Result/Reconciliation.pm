@@ -6,8 +6,6 @@ package IPlant::DB::TreeRec::Result::Reconciliation;
 use strict;
 use warnings;
 
-our $VERSION = '0.0.2';
-
 use base 'DBIx::Class::Core';
 
 
@@ -41,6 +39,11 @@ __PACKAGE__->table("reconciliation");
   data_type: 'integer'
   is_nullable: 0
 
+=head2 reconciliation_set_id
+
+  data_type: 'integer'
+  is_nullable: 0
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -52,12 +55,14 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_nullable => 0 },
   "species_set_id",
   { data_type => "integer", is_nullable => 0 },
+  "reconciliation_set_id",
+  { data_type => "integer", is_nullable => 0 },
 );
 __PACKAGE__->set_primary_key("reconciliation_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-10-25 09:42:48
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:YyKzyam+ePcAzF8KaWku2g
+# Created by DBIx::Class::Schema::Loader v0.07002 @ 2012-04-13 15:17:39
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:gVV54k2JXjeSEWkM8vKdEg
 
 __PACKAGE__->has_many(
     nodes => "IPlant::DB::TreeRec::Result::ReconciliationNode",

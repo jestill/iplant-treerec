@@ -8,3 +8,9 @@ Makefile
 blib
 pm_to_blib
 IPlant-TreeRec-*.tar.gz
+blastdb.tar.gz
+clusters.tar.gz
+.project
+.settings
+*.conflict
+.gitignore

@@ -94,30 +94,33 @@ Readonly my %EMPTY_SUMMARY => (
         return;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $summary_ref = $info->get_summary( $family_name,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Obtains summary information for a gene family.
     #
     # Returns    : The summary information.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the gene family tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     sub get_summary {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
 
         # Get the gene family, species tree and reconciliation.
         my $family = $dbh->resultset('Family')->for_name($family_name);
+#TODO: Refactor to use $reconciliation_set_id - CHECK
         my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_name($species_tree_name);
-        my $rec_id = $self->_get_reconciliation_id( $species_tree_name,
+            = $dbh->resultset('SpeciesTree')->for_set_id($reconciliation_set_id); 
+#TODO: Refactor to use $reconciliation_set_id - CHECK
+        my $rec_id = $self->_get_reconciliation_id( $reconciliation_set_id,
             $family_name );
 
         # Get the protein tree identifier.
@@ -136,9 +139,10 @@ Readonly my %EMPTY_SUMMARY => (
         return $summary_ref;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $details_ref = $info->get_details( $family_name,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Obtains detail information for a gene family.  Currently,
     #              the detail information is the same as the summary
@@ -148,12 +152,12 @@ Readonly my %EMPTY_SUMMARY => (
     # Returns    : The detail information.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     sub get_details {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
@@ -161,8 +165,8 @@ Readonly my %EMPTY_SUMMARY => (
         # Get the gene family, species tree and reconciliation.
         my $family = $dbh->resultset('Family')->for_name($family_name);
         my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_name($species_tree_name);
-        my $rec_id = $self->_get_reconciliation_id( $species_tree_name,
+            = $dbh->resultset('SpeciesTree')->for_set_id($reconciliation_set_id);
+        my $rec_id = $self->_get_reconciliation_id( $reconciliation_set_id,
             $family_name );
 
         # Get the protein tree identifier.
@@ -181,31 +185,33 @@ Readonly my %EMPTY_SUMMARY => (
         return $details_ref;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - DONE
     ##########################################################################
     # Usage      : $rec_id = $info->_get_reconciliation_id(
-    #                  $species_tree_name, $family_name );
+    #                  $reconciliation_set_id, $family_name );
     #
-    # Purpose    : Obtains the reconciliation ID for the given species tree
+    # Purpose    : Obtains the reconciliation ID for the given the reconciliation set id
     #              name and family name.
     #
     # Returns    : The reconciliation ID or undef if the reconciliation
     #              couldn't be found.
     #
-    # Parameters : $species_tree_name - the name of the species tree.
+    # Parameters : $reconciliation_set_id - the id of the reconciliation set.
     #              $family_name       - the name of the gene family.
     #
     # Throws     : No exceptions.
     sub _get_reconciliation_id {
-        my ( $self, $species_tree_name, $family_name ) = @_;
+        my ( $self, $reconciliation_set_id, $family_name ) = @_;
 
         # Quit early if the required arguments weren't prvided.
-        return if !defined $species_tree_name || !defined $family_name;
+        return if !defined $reconciliation_set_id || !defined $family_name;
 
         # Get the reconciliation.
         my $dbh = $dbh_of{ ident $self };
         my $rec = eval {
+#TODO: Refactor to use $reconciliation_set_id - CHECK
             $dbh->resultset('Reconciliation')
-                ->for_species_tree_and_family( $species_tree_name,
+                ->for_reconciliation_set_id_and_family( $reconciliation_set_id,
                 $family_name );
         };
         return if !defined $rec;
