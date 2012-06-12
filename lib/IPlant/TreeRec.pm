@@ -180,14 +180,14 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
             # enter the full GO value with leading zeros.
             $search_string = sprintf( "%07d", $search_string );
             $results_ref = $self->_do_gene_family_search( 'GoAccessionSearch',
-                $search_string, $species_tree_name );
+                $search_string, $reconciliation_set_id );
             return $results_ref;
         }
 
         # The default is to assume the string is a text search
         else {
             $results_ref = $self->_do_gene_family_search( 'GoSearch',
-                "\%$search_string\%", $species_tree_name );
+                "\%$search_string\%", $reconciliation_set_id );
             return $results_ref;
 
         }
