@@ -66,55 +66,57 @@ memoize( '_get_all_duplications' );
         return;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $events = $info->get_events( $family_name,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Classifies the events on a gene tree.
     #
     # Returns    : The events.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the gene family tree.
+    #              $reconciliation_set_id - the reconciliation set id.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::ReconciliationNotFoundException
     sub get_all_duplications {
-        my ( $self, $species_tree_name ) = @_;
+        my ( $self, $reconciliation_set_id ) = @_;
 
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
         
         # Obtain the speciation and duplication events.
-      	my $duplications = $self->_get_all_duplications( $species_tree_name );
+      	my $duplications = $self->_get_all_duplications( $reconciliation_set_id );
 
         return $duplications;
     }
     
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $events = $info->get_events( $family_name,
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Classifies the events on a gene tree.
     #
     # Returns    : The events.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $species_tree_name - the gene family tree.
+    #              $reconciliation_set_id - the reconciliation set id.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::ReconciliationNotFoundException
     sub get_duplications {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
 
          # Get the reconciliation.       
         my $rec = $dbh->resultset('Reconciliation')
-        	->for_species_tree_and_family( $species_tree_name, $family_name );
+        	->for_reconciliation_set_id_and_family( $reconciliation_set_id, $family_name );
         
         # Obtain the speciation and duplication events.
       	my $duplications = $self->_get_duplications( $rec->id() );
@@ -123,27 +125,27 @@ memoize( '_get_all_duplications' );
     }
 
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
-    # Usage      : $duplications = $info->_get_duplications($reconciliation_id);
+    # Usage      : $duplications = $info->_get_all_duplications($reconciliation_set_id);
     #
     # Purpose    : Returns all duplication events associated with the
     #              given reconciliation ID.
     #
     # Returns    : A list of the duplication events.
     #
-    # Parameters : $reconciliation_id - the ID of the reconciliation to
-    #                                   examine.
+    # Parameters : $reconciliation_set_id - the ID of the reconciliation set
     #
     # Throws     : No exceptions.
     sub _get_all_duplications {
-        my ( $self, $species_tree_name ) = @_;
+        my ( $self, $reconciliation_set_id ) = @_;
 	
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
 
         # Get the number of duplications.
         my @results = eval { $dbh->resultset('SpeciesDuplications')
-            ->search( {}, { 'bind' => [ $species_tree_name ] } ) };
+            ->search( {}, { 'bind' => [ $reconciliation_set_id ] } ) };
         warn $EVAL_ERROR if $EVAL_ERROR;
   		my%results;
         foreach(@results){

@@ -9,6 +9,8 @@ our $VERSION = '0.0.2';
 
 use base 'DBIx::Class::Core';
 
+#TODO: Refactor to use $reconciliation_set_id - Done
+
 __PACKAGE__->table_class('DBIx::Class::ResultSource::View');
 
 __PACKAGE__->table("family");
@@ -29,7 +31,8 @@ FROM reconciliation_node
 LEFT JOIN reconciliation ON reconciliation_node.reconciliation_id = reconciliation.reconciliation_id
 LEFT JOIN protein_tree ON reconciliation.protein_tree_id = protein_tree.protein_tree_id
 LEFT JOIN family ON protein_tree.family_id = family.family_id
-WHERE reconciliation_node.host_child_node_id = ?
+WHERE reconciliation.reconciliation_set_id = ?
+AND reconciliation_node.host_child_node_id = ?
 AND reconciliation_node.is_on_node = ?
 END_OF_DEFINITION
 

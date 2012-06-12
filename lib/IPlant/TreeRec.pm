@@ -375,17 +375,14 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Returns    : Events.
     #
     # Parameters : $family_name       - the gene family name.
-    #              $reconciliation_set_id - the name of the species tree.
+    #              $reconciliation_set_id - the reconciliation set id.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     sub get_gene_tree_events {
         my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
-#        # Use the default species tree if one wasn't provided.
-#        if ( !defined $species_tree_name ) {
-#            $species_tree_name = $default_species_tree_of{ ident $self };
-#        }
+
 
         # Fetch the tree loader and family info retreiver.
         my $info = $gene_tree_events_of{ ident $self };
@@ -402,7 +399,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return camel_case_keys($details_ref);
     }
 
-#TODO: Refactor to use $reconciliation_set_id - In Progress
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $text = $treerec->get_gene_tree_file($json);
     #
@@ -411,7 +408,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Returns    : The gene tree.
     #
     # Parameters : familyName       - the name of the gene family.
-    #              speciesTreeName  - the name of the species tree.
+    #              
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
@@ -421,13 +418,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         my ( $self, $json ) = @_;
 
         # Extract the arguments.
-        my ( $family_name, $species_tree_name )
+        my ( $family_name, $reconciliation_set_id )
             = $self->_extract_tree_args( $json, 'familyName' );
 
-        # Use the default species tree if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+
 
         # Fetch the tree loader.
         my $tree_loader = $gene_tree_loader_of{ ident $self };
@@ -443,16 +437,17 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
             $contents );
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $data_ref = $treerec->get_gene_tree_data($json);
     #
-    # Purpose    : Retrieves the gene tree for thge gene family with the given
+    # Purpose    : Retrieves the gene tree for the gene family with the given
     #              name as a Perl data structure.
     #
     # Returns    : The tree data.
     #
     # Parameters : familyName      - the name of the gene family.
-    #              speciesTreeName - the name of the species tree.
+    #              reconciliationSetId - the reconciliation set id.
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
@@ -462,13 +457,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         my ( $self, $json ) = @_;
 
         # Extract the arguments.
-        my ( $family_name, $species_tree_name )
+        my ( $family_name, $reconciliation_set_id )
             = $self->_extract_tree_args( $json, 'familyName' );
 
-        # Use the default species tree if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+
 
         # Get the objects we need.
         my $dbh         = $dbh_of{ ident $self };
@@ -478,8 +470,8 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         # Load the reconciliation data if we're supposed to.
         my $reconciliation;
         my $reconciliation_data;
-        if ( defined $species_tree_name ) {
-            $reconciliation = $self->_get_reconciliation( $species_tree_name,
+        if ( defined $reconciliation_set_id ) {
+            $reconciliation = $self->_get_reconciliation( $reconciliation_set_id,
                 $family_name );
             $reconciliation_data = $rec_loader->load($reconciliation);
         }
@@ -508,6 +500,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return \%result;
     }
 
+#TODO: Refactor to use $reconciliation_set_id
     ##########################################################################
     # Usage      : $text = $treerec->get_species_tree_file($json);
     #
@@ -551,6 +544,8 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
             $contents );
     }
 
+
+#TODO: Refactor to use $reconciliation_set_id
     ##########################################################################
     # Usage      : $data_ref = $treerec->get_species_tree_data($json)
     #
@@ -607,15 +602,16 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return \%results;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $data_ref = $treerec->get_species_tree_event(
-    #			   $family_name, $species_tree_name)
+    #			   $family_name, $reconciliation_set_id)
     #
     # Purpose    : Retrieves duplication events along the species tree.
     #
     # Returns    : The duplication events.
     #
-    # Parameters : speciesTreeName - the name of the species tree.
+    # Parameters : reconciliationSetId - the reconciliation set id.
     #              familyName      - the name of the related gene tree.
     #			   If no family name is provided the duplications across
     #			   all gene families are returned
@@ -623,12 +619,9 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
     sub get_species_tree_events {
-        my ( $self, $family_name, $species_tree_name ) = @_;
+        my ( $self, $family_name, $reconciliation_set_id ) = @_;
 
-        # Use the default species tree if one wasn't provided.
-        if ( !defined $species_tree_name ) {
-            $species_tree_name = $default_species_tree_of{ ident $self };
-        }
+
 
         # Fetch the tree loader and family info retreiver.
         my $info = $species_tree_events_of{ ident $self };
@@ -638,12 +631,12 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
 
         # Load the events information for the gene family.
 
-        if ( !defined $family_name || $family_name eq $species_tree_name ) {
-            $details_ref = $info->get_all_duplications($species_tree_name);
+        if ( !defined $family_name || $family_name eq $reconciliation_set_id ) {
+            $details_ref = $info->get_all_duplications($reconciliation_set_id);
         }
         else {
             $details_ref
-                = $info->get_duplications( $family_name, $species_tree_name );
+                = $info->get_duplications( $family_name, $reconciliation_set_id );
         }
 
         #Format for output
@@ -654,6 +647,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
 
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : @families = $treerec->find_duplication_events($json);
     #
@@ -666,6 +660,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #                             node that the selected edge leads into.
     #              edgeSelected - true if the edge leading into the node is
     #                             selected rather than the node itself.
+    #			   reconciliationSetId - the reconciliation set Id.
     #
     # Throws     : IPlant::TreeRec::IllegalArgumentException
     sub find_duplication_events {
@@ -675,29 +670,25 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         my $args_ref      = JSON->new->decode($json);
         my $node_id       = $args_ref->{'nodeId'};
         my $edge_selected = $args_ref->{'edgeSelected'};
-
+		my $reconciliation_set_id = $args_ref->{'reconciliationSetId'};
         # Validate the arguments.
         IPlant::TreeRec::IllegalArgumentException->throw()
-            if !defined $node_id || !defined $edge_selected;
+            if !defined $node_id || !defined $edge_selected || !defined $reconciliation_set_id;
 
         # Create a new duplication event finder.
         my $dbh    = $dbh_of{ ident $self };
         my $finder = IPlant::TreeRec::DuplicationEventFinder->new($dbh);
 
-        # Get the species tree name.
-        my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_node_id($node_id);
-        my $species_tree_name = $species_tree->species_tree_name();
 
         # Find the gene families containing duplication events.
         my @families
-            = $finder->find_duplication_events( $node_id, $edge_selected );
+            = $finder->find_duplication_events( $node_id, $edge_selected, $reconciliation_set_id );
 
         # Extract the columns from each of the matching results.
         @families = map {
             { $_->get_columns() }
         } @families;
-        $self->_load_gene_family_summaries( \@families, $species_tree_name );
+        $self->_load_gene_family_summaries( \@families, $reconciliation_set_id );
 
         # Convert the hash keys to camel-case.
         @families = map { camel_case_keys($_) } @families;
@@ -705,6 +696,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return { 'families' => \@families };
     }
 
+#TODO: Refactor to use $reconciliation_set_id - OK
     ##########################################################################
     # Usage      : $file_info_ref = $treerec->get_file( $type, $prefix );
     #
@@ -728,6 +720,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return $retriever->load_file( $type, $prefix );
     }
 
+#TODO: Refactor to use $reconciliation_set_id - OPEN
     ##########################################################################
     # Usage      : $results_ref = $treerec->blast_search( $blast_args_json
     #                  $species_tree_name );
@@ -936,8 +929,9 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return { geneTreeNodes => \@gene_tree_nodes };
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
-    # Usage      : ( $family_name, $species_tree_name ) = $treerec
+    # Usage      : ( $family_name, $reconciliation_set_id ) = $treerec
     #                  ->_extract_tree_args( $json, $required_arg );
     #
     # Purpose    : Extracts the arguments required to retrieve a tree from the
@@ -961,7 +955,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
             if defined $required_arg && !defined $args_ref->{$required_arg};
 
         # Extract and return the arguments.
-        return @{$args_ref}{qw( familyName speciesTreeName )};
+        return @{$args_ref}{qw( familyName reconciliationSetId )};
     }
 
     ##########################################################################
@@ -1061,11 +1055,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Throws     : No exceptions.
     sub _do_gene_family_search {
         my ( $self, $type, $search_string, $reconciliation_set_id ) = @_;
-#TODO: Switch for 'default' $recnciliation_set_id
-#        # Use the default species tree name if one wasn't provided.
-#        if ( !defined $species_tree_name ) {
-#            $species_tree_name = $default_species_tree_of{ ident $self };
-#        }
+
 
         # Perform the search.
         my $dbh     = $dbh_of{ ident $self };
@@ -1099,7 +1089,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     # Returns    : A reference to the updated results hash.
     #
     # Parameters : $results_ref       - a reference to the list of results.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - The id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub _load_gene_family_summaries {
@@ -1112,7 +1102,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         for my $result_ref ( @{$results_ref} ) {
             my $family_name = $result_ref->{name};
             my $summary_ref
-                = $info->get_summary( $family_name, $reconciliation_set_id ); #TODO: Refactor to use $reconciliation_set_id - DONE
+                = $info->get_summary( $family_name, $reconciliation_set_id );
                 
             $result_ref = { %{$result_ref}, %{$summary_ref} };
         }
@@ -1232,25 +1222,26 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return $deco->{$style};
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $reconciliation - $treerec->_get_reconciliation(
-    #                  $species_tree_name, $family_name );
+    #                  $reconciliation_set_id, $family_name );
     #
     # Purpose    : Fetches a reconciliation object from the database.
     #
     # Returns    : The reconciliation.
     #
-    # Parameters : $species_tree_name - the name of the species tree.
+    # Parameters : $reconciliation_set_id - the reconciliation set id.
     #              $family_name       - the name of the gene family.
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     sub _get_reconciliation {
-        my ( $self, $species_tree_name, $family_name ) = @_;
+        my ( $self, $reconciliation_set_id, $family_name ) = @_;
 
         # Load the reconciliation.
         my $dbh            = $dbh_of{ ident $self };
         my $reconciliation = $dbh->resultset('Reconciliation')
-            ->for_species_tree_and_family( $species_tree_name, $family_name );
+            ->for_reconciliation_set_id_and_family( $reconciliation_set_id, $family_name );
 
         return $reconciliation;
     }
