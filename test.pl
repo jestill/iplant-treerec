@@ -91,20 +91,21 @@ eval {
     # warn Dumper $treerec->go_search("miRNA binding");
     # warn Dumper $treerec->go_accession_search("0031124");
     # warn Dumper $treerec->gene_id_search("V01G0907");
-#     warn Dumper $treerec->get_gene_family_summary("pg00921");
-#    warn Dumper $treerec->get_gene_tree_events("pg00892");
- #   warn Dumper $treerec->get_species_tree_events();
- #   warn Dumper $treerec->get_rec('bowers_rosids','pg00892');
+    # warn Dumper $treerec->get_gene_family_details('pg13389',0);#'pg17605',0);'pg07475'
+  # warn Dumper $treerec->get_gene_tree_events('pg13389',0);
+ #
+ #   warn Dumper $treerec->get_species_tree_events('pg13389',0);
+#    warn Dumper $treerec->get_rec('pg13389',0);
 #    warn Dumper $treerec->get_gene_family_summary("pg00921");
 #     warn Dumper $treerec->get_gene_family_summary("pg00892");
-    #warn Dumper $treerec->get_gene_family_details("pg00921");
-    # warn Dumper get_gene_tree_file( $treerec, 'pg00892' );
+  #  warn Dumper $treerec->get_gene_family_details('pg13389',0);
+    # warn Dumper get_gene_tree_file( $treerec, 'pg13389' );
    #  warn Dumper get_gene_tree_file( $treerec, 'pg00892', 'bowers_rosids' );
     # warn Dumper get_species_tree_file( $treerec, 'bowers_rosids' );
     # warn Dumper get_species_tree_file( $treerec, 'bowers_rosids', 'pg00892' );
-     #   warn Dumper _get_gene_tree_data( $treerec, 'pg07475' );
-     warn Dumper _get_gene_tree_data( $treerec, 'pg00892', 'bowers_rosids' );
- #    warn Dumper get_species_tree_data( $treerec, 'bowers_rosids' );
+  #      warn Dumper _get_gene_tree_data( $treerec, 'pg07475',0 );
+ #    warn Dumper _get_gene_tree_data( $treerec, 'pg00892', 0 );
+  #  warn Dumper _get_species_tree_data($treerec,0, 'pg13389');
     # warn Dumper get_species_tree_data( $treerec, 'bowers_rosids', 'pg00892' );
 
     # warn Dumper $treerec->resolve_reconciliations(
@@ -142,7 +143,7 @@ eval {
     # warn Dumper blast_search( $treerec, 'protein', 'protein_query.fa' );
  #   warn Dumper blast_search( $treerec, 'protein', 'protein_query_pg00921.fa' );
     # warn Dumper find_duplication_events( $treerec, 10, 1 );
-    # warn Dumper find_duplication_events( $treerec, 10, 1 );
+     warn Dumper find_duplication_events( $treerec, 10, 1 );
 };
 if ( my $e = Exception::Class->caught() ) {
     warn "Exception: $e";
@@ -277,8 +278,8 @@ sub find_duplication_events {
 #              IPlant::TreeRec::ReconciliationNotFoundException
 #              IPlant::TreeRec::IllegalArgumentException
 sub _get_gene_tree_data {
-    my ( $treerec, $family_name, $species_tree_name ) = @_;
-    my $json = build_tree_args( $family_name, $species_tree_name );
+    my ( $treerec, $family_name, $reconciliation_set_id ) = @_;
+    my $json = build_tree_args( $family_name, $reconciliation_set_id );
     return $treerec->get_gene_tree_data($json);
 }
 
@@ -347,7 +348,7 @@ sub get_gene_tree_file {
 #              IPlant::TreeRec::TreeNotFoundException
 #              IPlant::TreeRec::ReconciliationNotFoundException
 #              IPlant::TreeRec::IllegalArgumentException
-sub get_species_tree_data {
+sub _get_species_tree_data {
     my ( $treerec, $species_tree_name, $family_name ) = @_;
     my $json = build_tree_args( $family_name, $species_tree_name );
     return $treerec->get_species_tree_data($json);
@@ -371,7 +372,7 @@ sub get_species_tree_data {
 #              IPlant::TreeRec::TreeNotFoundException
 #              IPlant::TreeRec::ReconciliationNotFoundException
 #              IPlant::TreeRec::IllegalArgumentException
-sub get_species_tree_file {
+sub _get_species_tree_file {
     my ( $treerec, $species_tree_name, $family_name ) = @_;
     my $json = build_tree_args( $family_name, $species_tree_name );
     return $treerec->get_species_tree_file($json);
@@ -391,12 +392,12 @@ sub get_species_tree_file {
 #
 # Throws     : No exceptions.
 sub build_tree_args {
-    my ( $family_name, $species_tree_name ) = @_;
+    my ( $family_name, $reconciliation_set_id ) = @_;
 
     # Build the arguments JSON.
     my $args_ref = { familyName => $family_name };
-    if ( defined $species_tree_name ) {
-        $args_ref->{speciesTreeName} = $species_tree_name;
+    if ( defined $reconciliation_set_id ) {
+        $args_ref->{reconciliationSetId} = $reconciliation_set_id;
     }
     my $json = JSON->new()->encode($args_ref);
 

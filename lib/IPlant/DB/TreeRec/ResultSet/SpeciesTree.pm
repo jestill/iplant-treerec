@@ -45,14 +45,14 @@ sub for_name {
 # Throws     : IPlant::TreeRec::TreeNotFoundException.
 sub for_reconciliation_set_id {
     my ( $self, $reconciliation_set_id ) = @_;
-
     # Find the tree.
     my $tree = $self->find( 
     	{ 'reconciliation.reconciliation_set_id' => $reconciliation_set_id },
-        { 'join' => 'reconciliation' }
+        { 'join'  =>  'reconciliation','group_by'=> 'species_tree_id'}
     );
+
     IPlant::TreeRec::TreeNotFoundException->throw(
-        error => "no species tree beloning to reconciliation set, $reconciliation_set_id, found" )
+        error => "No species tree beloning to reconciliation set, $reconciliation_set_id, found" )
         if !defined $tree;
 
     return $tree;

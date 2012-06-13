@@ -88,10 +88,9 @@ memoize( '_get_speciations' );
         # Get the database handle.
         my $dbh = $dbh_of{ ident $self };
 
-         # Get the gene family, species tree and reconciliation.       
+         # Get the gene family and the reconciliation.       
         my $family = $dbh->resultset('Family')->for_name($family_name);
-       	my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_set_id($reconciliation_set_id);
+
         my $rec = $dbh->resultset('Reconciliation')
         	->for_reconciliation_set_id_and_family( $reconciliation_set_id, $family_name );
         

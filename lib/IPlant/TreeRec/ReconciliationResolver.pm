@@ -59,9 +59,10 @@ use JSON;
         return;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $results_ref = $resolver->resolve(
-    #                  {   'speciesTreeName' => $species_tree_name,
+    #                  {   'reconciliationSetId' => $reconciliation_set_id,
     #                      'familyName'      => $family_name,
     #                      'speciesTreeNode' => $species_tree_node_id,
     #                      'geneTreeNode'    => $gene_tree_node_id,
@@ -83,7 +84,7 @@ use JSON;
     #
     # Returns    : A reference to a list of filled in reconciliation records.
     #
-    # Parameters : speciesTreeName - the name of the species tree.
+    # Parameters : reconciliationSetId - the id of the reconciliation set.
     #              familyName      - the gene family name.
     #              speciesTreeNode - the species tree node identifier.
     #              geneTreeNode    - the gene tree node identifier.
@@ -98,7 +99,7 @@ use JSON;
         my ( $self, $args_ref ) = @_;
 
         # Extract the arguments.
-        my $species_tree_name = $args_ref->{speciesTreeName};
+        my $reconciliation_set_id = $args_ref->{reconciliationSetId};
         my $family_name       = $args_ref->{familyName};
         my $species_node_id   = $args_ref->{speciesTreeNode};
         my $gene_node_id      = $args_ref->{geneTreeNode};
@@ -106,7 +107,7 @@ use JSON;
 
         # Validate the arguments.
         IPlant::TreeRec::IllegalArgumentException->throw()
-            if !defined $species_tree_name || !defined $family_name;
+            if !defined $reconciliation_set_id || !defined $family_name;
         IPlant::TreeRec::IllegalArgumentException->throw()
             if !defined $species_node_id && !defined $gene_node_id;
         IPlant::TreeRec::IllegalArgumentException->throw()
@@ -119,7 +120,7 @@ use JSON;
 
         # Fetch the reconciliation.
         my $reconciliation = $dbh->resultset('Reconciliation')
-            ->for_species_tree_and_family( $species_tree_name, $family_name );
+            ->for_reconciliation_set_id_and_family( $reconciliation_set_id, $family_name );
 
         # Resolve the node.
         my $results_ref
@@ -130,6 +131,7 @@ use JSON;
         return $results_ref;
     }
 
+#OK
     ##########################################################################
     # Usage      : $results_ref = $resolver->_resolve_species_nodes(
     #                  $reconciliation, $search_params_ref );
@@ -171,6 +173,7 @@ use JSON;
         return \@results;
     }
 
+#TODO: Might need to introduce reconciliation set id.
     ##########################################################################
     # Usage      : @node_search_params
     #                  = $resolver->_get_selected_species_node_search_params(
@@ -221,6 +224,7 @@ use JSON;
         return @results;
     }
 
+#TODO: Might need to introduce reconciliation set id.
     ##########################################################################
     # Usage      : my $search_params_ref
     #                  = $resolver->_species_tree_node_search_params(
@@ -244,6 +248,7 @@ use JSON;
         return \%params;
     }
 
+#OK
     ##########################################################################
     # Usage      : $results_ref = $resolver->_resolve_species_node(
     #                  $reconciliation, $search_params_ref );
@@ -276,6 +281,7 @@ use JSON;
         return $self->_format_results( $search_params_ref, @nodes );
     }
 
+#TODO: Might need to introduce reconciliation set id.
     ##########################################################################
     # Usage      : $results_ref = $resolver->_format_results(
     #                  $search_params_ref, @nodes );
