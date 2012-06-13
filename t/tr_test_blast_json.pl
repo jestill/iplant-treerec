@@ -1,0 +1,166 @@
+#!/usr/bin/perl -w
+#-----------------------------------------------------------+
+#                                                           |
+# tr_test_blast_tools.pl                                    |
+#                                                           |
+#-----------------------------------------------------------+
+#                                                           |
+# CONTACT: JamesEstill_at_gmail.com                         |
+# STARTED: 01/27/2011                                       |
+# UPDATED: 01/28/2011                                       |
+#                                                           |
+# DESCRIPTION:                                              | 
+#  Code to test the IPlant::TreeRec::BlastSearcher          |
+#                                                           |
+# USAGE: tr_test_blast_tools.pl                             |
+#                                                           |
+#-----------------------------------------------------------+
+
+use strict;
+use IPlant::TreeRec::BlastSearcher;
+use IPlant::TreeRec::BlastArgs;
+use JSON qw();
+
+my $verbose = 1;
+
+my $exec_dir = "/usr/local/ncbi/blast/bin/";
+my $db_dir = "/Users/jestill/blastplus_dir/";
+
+#-----------------------------------------------------------+
+# TEST SEQUENCES                                            |
+#-----------------------------------------------------------+
+# PROTEIN: Unix line endings, single record
+my $test_aa_seq = ">POPTR-0010s18130.1_poplar\n".
+    "MFHTKKPSTMNSHDRPMCVQGDSGLVLTTDPKPRLRWTVELHERFVDAVTQLGGPDKATP".
+    "KTIMRVMGVKGLTLYHLKSHLQKFRLGKQPHKDFNDHSIKDASALDLQRSAASSSGMMSR".
+    "SMNEMQMEVQRRLHEQLEVQRHLQLRTEAQGKYIQSLLEKACQTLAGDQNLASGSYKGMG".
+    "NQGIPGMGAMKEFGTLNFPAFQDLNIYGGDQLDLQHNMDRPSLDGFMPNNDNICLGKKRP".
+    "SPYDGSGKSPLIWPDDLRLQDLGSGPACLEPQDDPFKGDQIQMAPPSMDRGTDLDSISDM".
+    "YEIKPALQGDALDEKKFEASAKLKRPSPRRSPLAAERMSPMINTGAMPQGRNSPFG";
+
+# DNA: Unix line endings, single record
+# This is a good test for stripping headers since it has 
+# aa diagnostic characters in the header
+my $test_dna_seq = ">POPTR-0010s18130.1_poplar\n".
+    "ATGTTCCATACCAAGAAACCCTCAACTATGAATTCCCATGATAGACCCATGTGTGTTCAA".
+    "GGGGACTCTGGTCTTGTCCTCACCACAGACCCCAAGCCCCGTCTCCGCTGGACTGTTGAG".
+    "CTCCATGAACGCTTTGTGGATGCCGTTACTCAGCTTGGAGGCCCAGATAAGGCCACTCCC".
+    "AAAACCATCATGAGAGTCATGGGTGTGAAGGGTCTTACCCTTTACCACCTCAAAAGCCAT".
+    "CTTCAGAAATTCAGACTTGGAAAGCAACCACACAAGGATTTCAATGATCATTCAATTAAG".
+    "GATGCTTCGGCGTTAGATCTTCAACGAAGTGCAGCATCTTCATCTGGCATGATGAGCCGC".
+    "AGTATGAATGAGATGCAAATGGAGGTGCAGAGAAGACTGCATGAACAATTAGAGGTTCAA".
+    "AGACACCTTCAATTAAGGACCGAGGCTCAAGGGAAATATATACAAAGTTTGTTGGAGAAA".
+    "GCTTGCCAAACCCTAGCAGGTGATCAAAACTTGGCTTCTGGAAGCTATAAGGGAATGGGG".
+    "AATCAAGGAATTCCTGGTATGGGTGCAATGAAAGAATTTGGCACGCTGAATTTTCCAGCA".
+    "TTTCAAGACCTTAACATTTATGGGGGTGACCAACTTGACCTTCAACACAATATGGATAGG".
+    "CCATCACTCGATGGTTTCATGCCGAACAACGACAACATTTGTTTGGGAAAGAAGAGGCCT".
+    "AGTCCTTACGATGGTAGTGGAAAGAGCCCTTTGATTTGGCCGGACGATCTGCGTTTGCAG".
+    "GATTTGGGATCAGGACCGGCATGTCTTGAACCCCAAGATGATCCTTTCAAAGGTGATCAA".
+    "ATCCAGATGGCACCACCATCAATGGATAGGGGTACTGATCTGGATTCCATATCTGACATG".
+    "TATGAAATAAAGCCAGCGCTTCAGGGTGATGCACTGGATGAGAAGAAATTTGAAGCATCA".
+    "GCAAAGCTAAAAAGGCCATCCCCAAGAAGATCACCACTAGCAGCCGAAAGGATGAGCCCT".
+    "ATGATCAATACTGGCGCCATGCCACAAGGCAGAAACTCACCATTTGGT";
+
+# DNA: Unix line endings multiple records
+my $test_multi_dna_seq = ">POPTR-0010s18130.1_poplar\n".
+    "ATGTTCCATACCAAGAAACCCTCAACTATGAATTCCCATGATAGACCCATGTGTGTTCAA\n".
+    "GGGGACTCTGGTCTTGTCCTCACCACAGACCCCAAGCCCCGTCTCCGCTGGACTGTTGAG\n".
+    "CTCCATGAACGCTTTGTGGATGCCGTTACTCAGCTTGGAGGCCCAGATAAGGCCACTCCC\n".
+    "AAAACCATCATGAGAGTCATGGGTGTGAAGGGTCTTACCCTTTACCACCTCAAAAGCCAT\n".
+    "CTTCAGAAATTCAGACTTGGAAAGCAACCACACAAGGATTTCAATGATCATTCAATTAAG\n".
+    "GATGCTTCGGCGTTAGATCTTCAACGAAGTGCAGCATCTTCATCTGGCATGATGAGCCGC\n".
+    "AGTATGAATGAGATGCAAATGGAGGTGCAGAGAAGACTGCATGAACAATTAGAGGTTCAA\n".
+    "AGACACCTTCAATTAAGGACCGAGGCTCAAGGGAAATATATACAAAGTTTGTTGGAGAAA\n".
+    "GCTTGCCAAACCCTAGCAGGTGATCAAAACTTGGCTTCTGGAAGCTATAAGGGAATGGGG\n".
+    "AATCAAGGAATTCCTGGTATGGGTGCAATGAAAGAATTTGGCACGCTGAATTTTCCAGCA\n".
+    "TTTCAAGACCTTAACATTTATGGGGGTGACCAACTTGACCTTCAACACAATATGGATAGG\n".
+    "CCATCACTCGATGGTTTCATGCCGAACAACGACAACATTTGTTTGGGAAAGAAGAGGCCT\n".
+    "AGTCCTTACGATGGTAGTGGAAAGAGCCCTTTGATTTGGCCGGACGATCTGCGTTTGCAG\n".
+    "GATTTGGGATCAGGACCGGCATGTCTTGAACCCCAAGATGATCCTTTCAAAGGTGATCAA\n".
+    "ATCCAGATGGCACCACCATCAATGGATAGGGGTACTGATCTGGATTCCATATCTGACATG\n".
+    "TATGAAATAAAGCCAGCGCTTCAGGGTGATGCACTGGATGAGAAGAAATTTGAAGCATCA\n".
+    "GCAAAGCTAAAAAGGCCATCCCCAAGAAGATCACCACTAGCAGCCGAAAGGATGAGCCCT\n".
+    "ATGATCAATACTGGCGCCATGCCACAAGGCAGAAACTCACCATTTGGT\n".
+    ">POPTR-0010s18130.1_poplar\n".
+    "ATGTTCCATACCAAGAAACCCTCAACTATGAATTCCCATGATAGACCCATGTGTGTTCAA\n".
+    "GGGGACTCTGGTCTTGTCCTCACCACAGACCCCAAGCCCCGTCTCCGCTGGACTGTTGAG\n".
+    "CTCCATGAACGCTTTGTGGATGCCGTTACTCAGCTTGGAGGCCCAGATAAGGCCACTCCC\n".
+    "AAAACCATCATGAGAGTCATGGGTGTGAAGGGTCTTACCCTTTACCACCTCAAAAGCCAT\n".
+    "CTTCAGAAATTCAGACTTGGAAAGCAACCACACAAGGATTTCAATGATCATTCAATTAAG\n";
+
+# DNA: Windows line endings, multiple recors
+my $test_multi_win_dna_seq = ">POPTR-0010s18130.1_poplar\r\n".
+    "ATGTTCCATACCAAGAAACCCTCAACTATGAATTCCCATGATAGACCCATGTGTGTTCAA\r\n".
+    "GGGGACTCTGGTCTTGTCCTCACCACAGACCCCAAGCCCCGTCTCCGCTGGACTGTTGAG\r\n".
+    "CTCCATGAACGCTTTGTGGATGCCGTTACTCAGCTTGGAGGCCCAGATAAGGCCACTCCC\r\n".
+    "AAAACCATCATGAGAGTCATGGGTGTGAAGGGTCTTACCCTTTACCACCTCAAAAGCCAT\r\n".
+    "CTTCAGAAATTCAGACTTGGAAAGCAACCACACAAGGATTTCAATGATCATTCAATTAAG\r\n".
+    "GATGCTTCGGCGTTAGATCTTCAACGAAGTGCAGCATCTTCATCTGGCATGATGAGCCGC\r\n".
+    "AGTATGAATGAGATGCAAATGGAGGTGCAGAGAAGACTGCATGAACAATTAGAGGTTCAA\r\n".
+    ">POPTR-0010s18130.1_poplar\r\n".
+    "ATGTTCCATACCAAGAAACCCTCAACTATGAATTCCCATGATAGACCCATGTGTGTTCAA\r\n".
+    "GGGGACTCTGGTCTTGTCCTCACCACAGACCCCAAGCCCCGTCTCCGCTGGACTGTTGAG\r\n".
+    "CTCCATGAACGCTTTGTGGATGCCGTTACTCAGCTTGGAGGCCCAGATAAGGCCACTCCC\r\n".
+    "AAAACCATCATGAGAGTCATGGGTGTGAAGGGTCTTACCCTTTACCACCTCAAAAGCCAT\r\n".
+    "CTTCAGAAATTCAGACTTGGAAAGCAACCACACAAGGATTTCAATGATCATTCAATTAAG\r\n";
+
+# DNA: Mac line endings, multiple records
+my $test_multi_mac_dna_seq = $test_multi_dna_seq;
+$test_multi_mac_dna_seq =~ s/\n/\r/g;
+
+#print STDERR "Length ".$length_before." vs. ".$length_after."\n";
+
+#-----------------------------+
+# SET THE TEST SEQUENCE       |
+#-----------------------------+
+my $test_seq = $test_aa_seq;
+
+#-----------------------------+
+# SET THE JSON OBJECT         |
+#-----------------------------+
+my $blast_program = 'tblastx';
+my $json_blast_opts = {
+	'sequence'      => $test_seq,
+#	'sequenceType'  => 'protein',
+	'evalue'        => '0.0001',
+#	'maxNumSeqs'    => '20',
+};
+
+my $json_args = JSON->new->encode($json_blast_opts);
+#print STDERR "JSON IN:\n".$json_args."\n";
+
+my $json_blast_args =  IPlant::TreeRec::BlastArgs->from_json($json_args);
+
+my $blast_searcher = new IPlant::TreeRec::BlastSearcher ( 
+    {
+	'executable_dir' => $exec_dir,
+	'database_dir'   => $db_dir
+    }
+    );
+
+# Show the sequence used
+#my $sequence_used = $json_blast_args->get_sequence();
+#print STDERR "SEQ: ".$sequence_used."\n";
+
+#-----------------------------+
+# DO BLAST AND SHOW RESULTS   |
+#-----------------------------+
+my @gene_ids = $blast_searcher->search($json_blast_args);
+my $num_gene_ids = @gene_ids;
+print STDERR "Num matches Found:".$num_gene_ids."\n";
+for my $ind_hit (@gene_ids) {
+    print STDERR "\t".$ind_hit->{'query_id'}."\t";
+    print STDERR "\t".$ind_hit->{'gene_id'}."\t";
+    print STDERR "\t".$ind_hit->{'evalue'}."\t";
+    print STDERR "\t".$ind_hit->{'query_start'}."\t";
+    print STDERR "\t".$ind_hit->{'query_end'}."\t";
+    print STDERR "\t".$ind_hit->{'length'};
+    print STDERR "\n";
+    
+}
+
+1;
+exit;
+
+
+__END__

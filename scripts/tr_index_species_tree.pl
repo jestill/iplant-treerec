@@ -204,19 +204,25 @@ while(my $row = $sth->fetchrow_arrayref) {
     print STDERR "Computing nested set values for tree $tree_name...\n";
     print STDERR "\tresetting existing values\n" if $verbose;
 
-    # we need to reset the values to null first to prevent any
+
+    # Get the max of what is already there in indices
+    my $start_left_index = get_max_tree_index($dbh) + 1;
+
+    # Next we need to reset the values to null first to prevent any
     # possible unique key violations when updating on a tree that has
     # them already
-
     execute_sth($reset_nestedSet, $tree_id);
-    # Jamie added the commit here
 
     print STDERR "\tcomputing new values:\n" if $verbose;
     # recursively traverse the tree, depth-first, filling in the value
     # along the way
     handle_progress(0) if $verbose; # initialize
-    walktree($root_id);
+
+    # Taking start from max value of previous tree.
+    walktree($root_id, $start_left_index);
     # Jamie added commit here
+    # The commits would need to take place to make sure the next
+    # fetch of the max value is correct
     $dbh->commit;
 
     #-----------------------------+
@@ -241,6 +247,31 @@ exit;
 #-----------------------------------------------------------+
 # SUBFUNCTIONS                                              |
 #-----------------------------------------------------------+
+
+sub get_max_tree_index {
+# Get the maximum existing index value. This will allow the next
+# index to start at a unqiqu place so that index values can be
+# used for selection without needing to take the tree identifieer
+# into account. This will return 1 if value is 0
+    my $dbh = shift;
+    my ($sql, $cur, $result, @row);
+    my $get_max_r_index_sql = "SELECT MAX(right_index) FROM species_tree_node";
+    
+    $cur = $dbh->prepare($get_max_r_index_sql);
+    $cur->execute();
+
+    my $max_val;    
+    while (my $row = $cur->fetchrow_arrayref) {
+	$max_val = $row->[0]
+    }
+    # If max val less than one
+    if ($max_val < 1) {
+	$max_val = 1;
+    }
+
+    return $max_val;
+
+}
 
 sub walktree {
 # Taken from tree-precompute    
