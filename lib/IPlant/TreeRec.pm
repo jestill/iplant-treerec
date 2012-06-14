@@ -871,7 +871,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return $resolver->resolve($search_params_ref);
     }
 
-#TODO: Might need to introduce reconciliation set id.
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $results_ref = $treerec->genes_for_species($json);
     #
@@ -883,6 +883,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #
     # Parameters : familyName      - the gene family name.
     #              speciesTreeNode - the species tree node ID.
+    #			   reconciliationSetId - the id of the reconciliation set
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::NodeNotFoundException
@@ -899,6 +900,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         # Extract the search parameters.
         my $family_name          = $search_params_ref->{familyName};
         my $species_tree_node_id = $search_params_ref->{speciesTreeNode};
+        my $reconciliation_set_id = $search_params_ref->{reconciliationSetId};
 
         # Get the list of gene tree node IDs.
         my @gene_tree_nodes

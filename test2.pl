@@ -35,12 +35,6 @@ my $dbh      = IPlant::DB::TreeRec->connect( $dsn, $user, $password );
 
 
 # Create the tree loader.
-#my $tree_loader = IPlant::TreeRec::FileTreeLoader->new(
-#    {   data_dir           => '/home/dennis/treerec/clusters',
-#        filename_extension => '_genetree.nhx',
-#        tree_format        => 'nhx',
-#    }
-#);
 my $tree_loader = IPlant::TreeRec::DatabaseTreeLoader->new($dbh);
 
 # Create the gene family info.
@@ -400,10 +394,11 @@ eval {
     #
     # Parameters : familyName      - the gene family name.
     #              speciesTreeNode - the species tree node ID.
+    #			   reconciliationSetId - the id of the reconciliation set
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::NodeNotFoundException
-# 	warn Dumper $treerec->genes_for_species($json4); #PASS BUT NEEDS REFACTORING
+# 	warn Dumper $treerec->genes_for_species($json4); #PASS
 };
 
 if ( my $e = Exception::Class->caught() ) {
