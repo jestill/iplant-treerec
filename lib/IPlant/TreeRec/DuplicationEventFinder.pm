@@ -59,7 +59,7 @@ use English qw( -no_match_vars );
         # Find the duplication events.
         my $dbh = $dbh_of{ ident $self };
         my @family_names = $dbh->resultset('DuplicationSearch')
-            ->search( {}, { 'bind' => [ $node_id, !$edge_selected , $reconciliation_set_id] } );
+            ->search( {}, { 'bind' => [ $node_id, !$edge_selected,$reconciliation_set_id] } );
         return @family_names;
     }
 }

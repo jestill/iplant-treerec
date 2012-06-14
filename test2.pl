@@ -19,6 +19,7 @@ use IPlant::TreeRec::FileTreeLoader;
 use IPlant::TreeRec::GeneFamilyInfo;
 use IPlant::TreeRec::GeneTreeEvents;
 use IPlant::TreeRec::SpeciesTreeEvents;
+use IPlant::TreeRec::GoCloud;
 use JSON qw();
 use Perl6::Slurp;
 
@@ -96,8 +97,8 @@ my$gene_id="V01G0907";
 my$json=JSON->new()->encode({ 'familyName'=>$family_name, 'reconciliationSetId'=>$reconciliation_set_id});
 my$json2= JSON->new()->encode(
             {   'reconciliationSetId' => $reconciliation_set_id,
-                 'speciesTreeNode' => 8,
-                 'edgeSelected'    => 0,
+                 'nodeId' => 3,
+                 'edgeSelected'    => 1,
              }
          );
 my$json3= JSON->new()->encode(
@@ -175,17 +176,6 @@ eval {
 #   warn Dumper $treerec->gene_id_search($gene_id,0); #PASS
 
 
-    ##########################################################################
-    # Usage      : $go_cloud = $treerec->generate_go_cloud($family_name);
-    #
-    # Purpose    : Generates the GO term cloud for the given gene family name.
-    #
-    # Returns    : The GO term cloud as an HTML fragment.
-    #
-    # Parameters : $family_name - the name of the gene family.
-    #
-    # Throws     : No exceptions.
-#	warn Dumper $treerec->generate_go_cloud($family_name); #FAIL
 
     ##########################################################################
     # Usage      : $results_ref = $treerec->get_gene_family_summary(
@@ -333,7 +323,7 @@ eval {
     #			   reconciliationSetId - the reconciliation set Id.
     #
     # Throws     : IPlant::TreeRec::IllegalArgumentException
-#***	warn Dumper $treerec->find_duplication_events($json2); #FAIL
+#	warn Dumper $treerec->find_duplication_events($json2); #PASS w POTENTIAL PROBLEM (undef GO)
 
     ##########################################################################
     # Usage      : $file_info_ref = $treerec->get_file( $type, $prefix );
