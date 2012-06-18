@@ -51,6 +51,10 @@ use Exception::Class (
     'IPlant::TreeRec::ReconciliationNotFoundException' => {
         'isa' => 'IPlant::TreeRec::Exception',
     },
+    # Thrown when a reconciliation set can't be located.
+    'IPlant::TreeRec::ReconciliationSetNotFoundException' => {
+        'isa' => 'IPlant::TreeRec::Exception',
+    },
 );
 
 1;

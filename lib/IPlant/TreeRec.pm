@@ -275,6 +275,43 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return { cloud => $cloud };
     }
 
+
+#TODO: Refactor to use $reconciliation_set_id - Done
+    ##########################################################################
+    # Usage      : $reconciliations = $treerec->get_reconciliation_sets()
+    #
+    #
+    # Purpose    : Gets the list of reconciliation sets 
+    #
+    # Returns    : A reference to a list containing the single gene family
+    #              summary or a reference to an empty list of the gene family
+    #              doesn't exist.
+    #
+    # Parameters :None 
+	#
+    #
+    # Throws     : No exceptions.
+    sub get_reconciliation_sets {
+        my ( $self ) = @_;
+
+        # Fetch the database handle.
+        my $dbh = $dbh_of{ ident $self };
+
+
+        # Load the results.
+        my @families = ( { name => $family_name } );
+        eval {
+            $self->_load_gene_family_summaries( \@families,
+                $reconciliation_set_id );
+        };
+        if ( my $e = IPlant::TreeRec::GeneFamilyNotFoundException->caught() )
+        {
+            @families = ();
+        }
+
+        return \@families;
+    }
+
 #TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $results_ref = $treerec->get_gene_family_summary(
@@ -488,7 +525,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return \%result;
     }
 
-#TODO: Refactor to use $reconciliation_set_id - In progress
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : $text = $treerec->get_species_tree_file($json);
     #
@@ -1232,6 +1269,8 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return $reconciliation;
     }
 }
+
+
 
 1;
 __END__

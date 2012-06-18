@@ -33,7 +33,7 @@ sub for_name {
 
 #TODO: Refactor to use $reconciliation_set_id - CHECK
 ##########################################################################
-# Usage      : $species_tree = $dbh->resultset('SetID')
+# Usage      : $species_tree = $dbh->resultset('SpeciesTree')
 #                  ->for_reconciliation_set_id($reconciliation_set_id);
 #
 # Purpose    : Finds the species tree belonging to the given reconciliation set id.
