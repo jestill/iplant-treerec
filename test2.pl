@@ -107,9 +107,71 @@ my$json4= JSON->new()->encode(
                  'speciesTreeNode' => 8,
              }
          );
-         
+
+my@to_test;#qw(get_species_tree_file);
+
+        
+my$tests = {
+     general_go_search =>   sub { $treerec->general_go_search($go_term,$reconciliation_set_id)}, #PASS
+     go_search => sub {$treerec->go_search($go_term,$reconciliation_set_id)},
+     go_accession_search => sub {$treerec->go_accession_search($go_accession,$reconciliation_set_id)},
+
+  	 gene_id_search => sub { $treerec->gene_id_search($gene_id,$reconciliation_set_id)}, #PASS
+
+	get_gene_family_summary=> sub { $treerec->get_gene_family_summary($family_name, $reconciliation_set_id )}, #PASS w POTENTIAL PROBLEM (undef GO)
+
+ 	get_gene_family_details => sub { $treerec->get_gene_family_details($family_name, $reconciliation_set_id )}, #PASS
+
+    get_gene_tree_events => sub { $treerec->get_gene_tree_events($family_name, $reconciliation_set_id )}, #PASS
+
+    get_gene_tree_file => sub { $treerec->get_gene_tree_file($json)}, #PASS
+
+ 	get_gene_tree_data => sub { $treerec->get_gene_tree_data($json)}, #PASS w BioPerl exception on Destructor
+
+    get_species_tree_file => sub { $treerec->get_species_tree_file($json)}, #PASS
+
+	get_species_tree_data => sub { $treerec->get_species_tree_data($json)},#PASS w BioPerl exception on Destructor
+
+   	get_species_tree_events => sub {$treerec->get_species_tree_events( $family_name, $reconciliation_set_id)}, #PASS Note: result seems meaningless
+  	get_species_tree_events_G => sub { $treerec->get_species_tree_events( undef,0)}, #PASS Note: result seems meaningless
+
+	find_duplication_events => sub { $treerec->find_duplication_events($json2)}, #PASS w POTENTIAL PROBLEM (undef GO)
+
+	resolve_reconciliations => sub { $treerec->resolve_reconciliations($json3)}, #PASS
+
+ 	genes_for_species => sub { $treerec->genes_for_species($json4)},
+};
+
+if(!@to_test){
+	@to_test=sort keys %{$tests};
+}
+
+my$tot=scalar @to_test;
+my$pass=0;
+foreach my$id (@to_test){
+	 $|=1;
+	print "Testing $id...\t";	
+	
+	my$k=eval{$tests->{$id}->();};
+	if ( my $e = Exception::Class->caught() ) {
+   		warn "FAIL: $e";
+  	  	if ( ref $e ) {
+        	warn $e->trace()->as_string();
+   		}
+	}
+	if(defined $k){
+		$pass++;
+		print "PASS\n";	
+	}
+	else {
+		print "FAIL: Unknown Error\n";
+	}
+
+}
+print "\n$pass/$tot tests successful.\n";
+
+exit 0;
 eval {
-     
 
     ##########################################################################
     # Usage      : $results_ref = $treerec->general_go_search( $search_string,
@@ -123,9 +185,8 @@ eval {
     # Parameters : $search_string     - the string to search for.
     #              $reconciliation_set_id - the id of the reconciliation set.
     #
-    # Throws     : No exceptions.
-#    warn Dumper $treerec->general_go_search($go_term,$reconciliation_set_id); #PASS
- 
+    # Throws     : No exceptions.    
+    warn Dumper $treerec->general_go_search($go_term,$reconciliation_set_id); #PASS #PASS
 
     ##########################################################################
     # Usage      : $results_ref = $treerec->go_search( $search_string,
@@ -139,7 +200,7 @@ eval {
     #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
-#     warn Dumper $treerec->go_search($go_term,0); #PASS
+    warn Dumper $treerec->go_search($go_term,$reconciliation_set_id); #PASS
 
     ##########################################################################
     # Usage      : $results_ref = $treerec->go_accession_search(
@@ -153,7 +214,7 @@ eval {
     #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
-#	warn Dumper $treerec->go_accession_search($go_accession,0); #PASS
+	warn Dumper $treerec->go_accession_search($go_accession,$reconciliation_set_id); #PASS
 
     ##########################################################################
     # Usage      : $results_ref = $treerec->gene_id_search( $search_string,
@@ -167,7 +228,7 @@ eval {
     #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
-#   warn Dumper $treerec->gene_id_search($gene_id,0); #PASS
+   warn Dumper $treerec->gene_id_search($gene_id,$reconciliation_set_id); #PASS
 
 
 
@@ -188,7 +249,7 @@ eval {
     #              $reconciliation_set_id - id of the reconciliation set.
     #
     # Throws     : No exceptions.
-#	warn Dumper $treerec->get_gene_family_summary($family_name, $reconciliation_set_id ); #PASS w POTENTIAL PROBLEM (undef GO)
+	warn Dumper $treerec->get_gene_family_summary($family_name, $reconciliation_set_id ); #PASS w POTENTIAL PROBLEM (undef GO)
 
     ##########################################################################
     # Usage      : $results_ref = $treerec->get_gene_family_details(
@@ -204,7 +265,7 @@ eval {
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
-# 	warn Dumper $treerec->get_gene_family_details($family_name, $reconciliation_set_id ); #PASS
+ 	warn Dumper $treerec->get_gene_family_details($family_name, $reconciliation_set_id ); #PASS
 
 
     ##########################################################################
@@ -221,7 +282,7 @@ eval {
     #
     # Throws     : IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
-#    warn Dumper $treerec->get_gene_tree_events($family_name, $reconciliation_set_id ); #PASS
+    warn Dumper $treerec->get_gene_tree_events($family_name, $reconciliation_set_id ); #PASS
 
     ##########################################################################
     # Usage      : $text = $treerec->get_gene_tree_file($json);
@@ -237,7 +298,7 @@ eval {
     #              IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::ReconciliationNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
-#    warn Dumper $treerec->get_gene_tree_file($json); #PASS
+    warn Dumper $treerec->get_gene_tree_file($json); #PASS
 
     ##########################################################################
     # Usage      : $data_ref = $treerec->get_gene_tree_data($json);
@@ -254,7 +315,7 @@ eval {
     #              IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::ReconciliationNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
-# 	warn Dumper $treerec->get_gene_tree_data($json); #PASS w BioPerl exception on Destructor
+ 	warn Dumper $treerec->get_gene_tree_data($json); #PASS w BioPerl exception on Destructor
 
     ##########################################################################
     # Usage      : $text = $treerec->get_species_tree_file($json);
@@ -268,7 +329,7 @@ eval {
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
-#    warn Dumper $treerec->get_species_tree_file($json); #PASS
+    warn Dumper $treerec->get_species_tree_file($json); #PASS
 
     ##########################################################################
     # Usage      : $data_ref = $treerec->get_species_tree_data($json)
@@ -282,7 +343,7 @@ eval {
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
-#	 warn Dumper $treerec->get_species_tree_data($json);#PASS w BioPerl exception on Destructor
+	 warn Dumper $treerec->get_species_tree_data($json);#PASS w BioPerl exception on Destructor
 
     ##########################################################################
     # Usage      : $data_ref = $treerec->get_species_tree_events(
@@ -299,8 +360,8 @@ eval {
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
-#   warn Dumper $treerec->get_species_tree_events( $family_name, $reconciliation_set_id); #PASS Note: result seems meaningless
-#   warn Dumper $treerec->get_species_tree_events( undef,0); #PASS Note: result seems meaningless
+   warn Dumper $treerec->get_species_tree_events( $family_name, $reconciliation_set_id); #PASS Note: result seems meaningless
+   warn Dumper $treerec->get_species_tree_events( undef,0); #PASS Note: result seems meaningless
 
     ##########################################################################
     # Usage      : @families = $treerec->find_duplication_events($json);
@@ -317,7 +378,7 @@ eval {
     #			   reconciliationSetId - the reconciliation set Id.
     #
     # Throws     : IPlant::TreeRec::IllegalArgumentException
-#	warn Dumper $treerec->find_duplication_events($json2); #PASS w POTENTIAL PROBLEM (undef GO)
+	warn Dumper $treerec->find_duplication_events($json2); #PASS w POTENTIAL PROBLEM (undef GO)
 
     ##########################################################################
     # Usage      : $file_info_ref = $treerec->get_file( $type, $prefix );
@@ -380,7 +441,7 @@ eval {
     #              IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::GeneFamilyNotFoundException
     #              IPlant::TreeRec::ReconciliationNotFoundException
-#warn Dumper $treerec->resolve_reconciliations($json3); #PASS
+warn Dumper $treerec->resolve_reconciliations($json3); #PASS
 
 
     ##########################################################################
@@ -398,7 +459,7 @@ eval {
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::NodeNotFoundException
-# 	warn Dumper $treerec->genes_for_species($json4); #PASS
+ 	warn Dumper $treerec->genes_for_species($json4); #PASS
 };
 
 if ( my $e = Exception::Class->caught() ) {

@@ -21,6 +21,7 @@ use IPlant::TreeRec::ProteinTreeNodeFinder;
 use IPlant::TreeRec::ReconciliationLoader;
 use IPlant::TreeRec::ReconciliationResolver;
 use IPlant::TreeRec::TreeDataFormatter;
+use IPlant::TreeRec::ReconciliationSetFinder;
 use IPlant::TreeRec::Utils qw(camel_case_keys);
 use IPlant::TreeRec::X;
 use List::MoreUtils qw(uniq);
@@ -40,6 +41,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     my %gene_tree_events_of;
     my %go_cloud_generator_of;
     my %species_tree_events_of;
+    my %reconciliation_set_finder_of;
 
     ##########################################################################
     # Usage      : $treerec = IPlant::TreeRec->new(
@@ -51,6 +53,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #                      default_species_tree => $species_tree_name,
     #                      gene_tree_events     => $tree_decorations,
     #                      go_cloud_generator   => $go_cloud_generator,
+    #					   reconciliation_set_finder => $reconciliation_set_finder,
     #                  }
     #              );
     #
@@ -67,6 +70,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #              default_species_tree  - the default species tree.
     #              gene_tree_events      - used to note events in gene trees.
     #              go_cloud_generator    - used to generate GO clouds.
+    #			   reconciliation_set_finder - used to find reconciliation sets.
     #
     # Throws     : IPlant::TreeRec::DatabaseException
     sub new {
@@ -78,15 +82,16 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         my $gene_family_info     = $args_ref->{gene_family_info};
         my $file_retriever       = $args_ref->{file_retriever};
         my $blast_searcher       = $args_ref->{blast_searcher};
-        my $default_species_tree = $args_ref->{default_species_tree};
+#        my $default_species_tree = $args_ref->{default_species_tree};
         my $gene_tree_events     = $args_ref->{gene_tree_events};
         my $species_tree_events  = $args_ref->{species_tree_events};
         my $go_cloud_generator   = $args_ref->{go_cloud_generator};
+        my $reconciliation_set_finder = $args_ref->{reconciliation_set_finder};
 
         # Use the default default species tree if one wasn't provided.
-        if ( !defined $default_species_tree ) {
-            $default_species_tree = $DEFAULT_DEFAULT_SPECIES_TREE;
-        }
+#        if ( !defined $default_species_tree ) {
+#           $default_species_tree = $DEFAULT_DEFAULT_SPECIES_TREE;
+#        }
 
         # Create the new object.
         my $self = bless anon_scalar, $class;
@@ -97,10 +102,11 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         $gene_family_info_of{ ident $self }     = $gene_family_info;
         $file_retriever_of{ ident $self }       = $file_retriever;
         $blast_searcher_of{ ident $self }       = $blast_searcher;
-        $default_species_tree_of{ ident $self } = $default_species_tree;
+  #      $default_species_tree_of{ ident $self } = $default_species_tree;
         $gene_tree_events_of{ ident $self }     = $gene_tree_events;
         $go_cloud_generator_of{ ident $self }   = $go_cloud_generator;
         $species_tree_events_of{ ident $self }  = $species_tree_events;
+	    $reconciliation_set_finder_of{ ident $self}= $reconciliation_set_finder;
 
         return $self;
     }
@@ -129,6 +135,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         delete $gene_tree_events_of{ ident $self };
         delete $go_cloud_generator_of{ ident $self };
         delete $species_tree_events_of{ ident $self };
+        delete $reconciliation_set_finder_of{ident $self};
 
         return;
     }
@@ -276,41 +283,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     }
 
 
-#TODO: Refactor to use $reconciliation_set_id - Done
-    ##########################################################################
-    # Usage      : $reconciliations = $treerec->get_reconciliation_sets()
-    #
-    #
-    # Purpose    : Gets the list of reconciliation sets 
-    #
-    # Returns    : A reference to a list containing the single gene family
-    #              summary or a reference to an empty list of the gene family
-    #              doesn't exist.
-    #
-    # Parameters :None 
-	#
-    #
-    # Throws     : No exceptions.
-    sub get_reconciliation_sets {
-        my ( $self ) = @_;
 
-        # Fetch the database handle.
-        my $dbh = $dbh_of{ ident $self };
-
-
-        # Load the results.
-        my @families = ( { name => $family_name } );
-        eval {
-            $self->_load_gene_family_summaries( \@families,
-                $reconciliation_set_id );
-        };
-        if ( my $e = IPlant::TreeRec::GeneFamilyNotFoundException->caught() )
-        {
-            @families = ();
-        }
-
-        return \@families;
-    }
 
 #TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
