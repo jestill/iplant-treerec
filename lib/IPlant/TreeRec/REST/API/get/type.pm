@@ -11,7 +11,7 @@ use Class::Std::Utils;
 use English qw(-no_match_vars);
 use Exception::Class;
 use IPlant::TreeRec::REST::Handler;
-use IPlant::TreeRec::REST::API::get::type::qualifier;
+#use IPlant::TreeRec::REST::API::get::type::qualifier;
 use IPlant::TreeRec::REST::Initializer qw(get_tree_rec);
 use List::MoreUtils qw(any);
 use Readonly;
@@ -39,13 +39,13 @@ Readonly my $SPECIES_TREE => 'bowers_rosids';
 
 # The getter subroutines for the various object types.
 Readonly my %GETTER_FOR => (
-    'related-nodes'     => sub { $_[0]->resolve_reconciliations( $_[2] ) },
-    'species-tree'      => sub { $_[0]->get_species_tree_file( $_[2] ) },
-    'species-data'      => sub { $_[0]->get_species_tree_data( $_[2] ) },
-    'gene-tree'         => sub { $_[0]->get_gene_tree_file( $_[2] ) },
-    'gene-data'         => sub { $_[0]->get_gene_tree_data( $_[2] ) },
-    'go-cloud'          => sub { $_[0]->get_go_cloud( $_[2] ) },
-    'genes-for-species' => sub { $_[0]->genes_for_species( $_[2] ) },
+    'related-nodes'     => sub { $_[0]->resolve_reconciliations( $_[2] ) }, #reconciliationSetId, familyName, speciesTreeNode, geneTreeNode, edgeSelected
+    'species-tree'      => sub { $_[0]->get_species_tree_file( $_[2] ) }, #familiyName, reconciliationSetId
+    'species-data'      => sub { $_[0]->get_species_tree_data( $_[2] ) }, #familiyName, reconciliationSetId
+    'gene-tree'         => sub { $_[0]->get_gene_tree_file( $_[2] ) },#familyName  
+    'gene-data'         => sub { $_[0]->get_gene_tree_data( $_[2] ) },#familiyName, reconciliationSetId
+    'go-cloud'          => sub { $_[0]->get_go_cloud( $_[2] ) }, #$family_name
+    'genes-for-species' => sub { $_[0]->genes_for_species( $_[2] ) },#familiyName, speciesTreeNode, reconciliationSetId
     'default'           => sub { $_[0]->get_file( $_[1], "" ) },
 );
 
@@ -323,12 +323,12 @@ use base 'IPlant::TreeRec::REST::Handler';
 #
 # Throws     : No exceptions.
 sub _encode_species_tree_args {
-    my ($json) = @_;
-    my $result
-        = defined $json
-        ? $json
-        : JSON->new()->encode( { 'speciesTreeName' => $SPECIES_TREE, } );
-    return $result;
+    my ($request) = @_;
+     my$json=JSON->new()->encode( { 
+     	'speciesTreeName' => $request->para('speciesTreeName'),
+     	'reconciliationSetId' => $request->para('reconciliationSetId'),    
+     } );
+    return $json;
 }
 
 ##########################################################################

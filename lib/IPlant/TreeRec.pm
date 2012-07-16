@@ -506,8 +506,8 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #
     # Returns    : The species tree.
     #
-    # Parameters : speciesTreeName - the name of the species tree.
-    #              familyName      - the name of the related gene tree.
+    # Parameters : familyName      - the name of the related gene tree.
+    #              reconciliationSetId - the id of the reconciliation set.    
     #
     # Throws     : IPlant::TreeRec::TreeNotFoundException
     #              IPlant::TreeRec::IllegalArgumentException
@@ -517,7 +517,6 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         # Extract the arguments.
         my ( $family_name, $reconciliation_set_id )
             = $self->_extract_tree_args($json);
-      	print "$family_name, $reconciliation_set_id\n";
         # Fetch the tree loader.
         my $tree_loader = $gene_tree_loader_of{ ident $self };
 
@@ -709,10 +708,10 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         return $retriever->load_file( $type, $prefix );
     }
 
-#TODO: Might need to introduce reconciliation set id.
+#TODO: Introduce reconciliation set id.
     ##########################################################################
     # Usage      : $results_ref = $treerec->blast_search( $blast_args_json
-    #                  $species_tree_name );
+    #                  $reconciliation_set_id );
     #
     # Purpose    : Performs a BLAST search on the given BLAST arguments
     #              search.
@@ -725,11 +724,11 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
     #
     # Parameters : $blast_args_json   - a JSON string representing the search
     #                                   parameters.
-    #              $species_tree_name - the name of the species tree.
+    #              $reconciliation_set_id - the id of the reconciliation set.
     #
     # Throws     : No exceptions.
     sub blast_search {
-        my ( $self, $blast_args_json, $species_tree_name ) = @_;
+        my ( $self, $blast_args_json, $reconciliation_set_id ) = @_;
 
         # Use the species tree name if one wasn't provided.
         if ( !defined $species_tree_name ) {
@@ -752,7 +751,7 @@ Readonly my $DEFAULT_DEFAULT_SPECIES_TREE => 'bowers_rosids';
         my @results = $self->_prune_blast_results(@blast_results);
 
         # Load the gene family summary information.
-        $self->_load_gene_family_summaries( \@results, $species_tree_name );
+        $self->_load_gene_family_summaries( \@results, $reconciliation_set_id );
 
         # Convert the hash keys to camel-case.
         @results = map { camel_case_keys($_) } @results;

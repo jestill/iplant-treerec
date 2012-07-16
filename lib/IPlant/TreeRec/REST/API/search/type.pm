@@ -28,11 +28,11 @@ Readonly my %SUPPORTED_METHODS_FOR => (
 
 # The search subroutines fo each of the search types.
 Readonly my %SEARCHER_FOR => (
-    'go-search'           => sub { $_[0]->go_search( $_[1] ) },
-    'go-accession-search' => sub { $_[0]->go_accession_search( $_[1] ) },
-    'gene-id-search'      => sub { $_[0]->gene_id_search( $_[1] ) },
-    'blast-search'        => sub { $_[0]->blast_search( $_[1], $_[2] ) },
-    'duplication-search'  => sub { $_[0]->find_duplication_events( $_[1] ) },
+    'go-search'           => sub { $_[0]->go_search( $_[1] ) }, #search string, reconciliationSetId
+    'go-accession-search' => sub { $_[0]->go_accession_search( $_[1] ) }, #accession, reconciliationSetId
+    'gene-id-search'      => sub { $_[0]->gene_id_search( $_[1]  ) }, # search string, reconciliationSetId
+    'blast-search'        => sub { $_[0]->blast_search( $_[1], $_[2] ) },# json, reconciliationSetId
+    'duplication-search'  => sub { $_[0]->find_duplication_events( $_[1] ) },# search string, reconciliationSetId
 );
 
 use base 'IPlant::TreeRec::REST::Handler';
