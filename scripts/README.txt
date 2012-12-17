@@ -90,13 +90,12 @@ This can be checked in mysql as:
  POPULATE CONTROLLED VOCABULARY TABLES
 +-----------------------------------------------------------+
 
-Ontologies are in ontology dir relative to this README file at
+-----------------------------+
+ OVERVIEW
+-----------------------------+
+
+Ontologies are in the ontology dir relative to this README file at
 ../ontology/
-
-
-The relationship ontology must first be loaded into the database to allow 
-for other ontologies to use these terms.
-
 The available tools for loading ontologies into the database requires 
 the conversion of the obo file to chadoxml format with the go2chadoxml 
 program from GMOD (http://gmod.org/wiki/XORT#go2chadoxml). This program takes 
@@ -126,14 +125,44 @@ This program accepts the following options:
 
 For example, to load the file for the phylogeny ontology (phylo_ontology.xml):
 
- stag-storenode.pl -d 'dbi:mysql:dbname=tr_test;host=localhost' 
+ stag-storenode.pl -d 'dbi:mysql:dbname=tr_deep_gree;host=localhost' 
     --user [USERNAME] --password [PASSWORD] phylo_ontology.xml
 
 For more information on loading custom ontologies into this framework, see 
 the documentation for how to load a custom ontology into Chado at
 http://gmod.org/wiki/Load_a_custom_ontology_in_Chado.
 
-Loading Term Relationships into the Database
+-----------------------------+
+ A. LOAD THE RELATIONSHIP
+    ONTOLOGY
+-----------------------------+
+
+The relationship ontology must first be loaded into the database to allow 
+for other ontologies to use these terms:
+
+ stag-storenode.pl -d 'dbi:mysql:dbname=tr_deep_green;host=localhost' 
+    --user [USERNAME] --password [PASSWORD] ro.chado.xml
+
+-----------------------------+
+ B. LOAD THE GENE
+    ONTOLOGY
+-----------------------------+
+
+ stag-storenode.pl -d 'dbi:mysql:dbname=tr_deep_green;host=localhost' 
+    --user [USERNAME] --password [PASSWORD] gene_ontology.1_2.chado.xml
+
+Loading the Gene Ontology will take a few minutes.
+
+-----------------------------+
+ C. Load GO term relationships
+-----------------------------+
+ 
+To load the relationships among gene ontology terms:
+
+  ./tr_import_go_transitive_closure.pl -u [USERNAME] -p [PASSWORD] 
+     --host localhost --dbname tr_deep_green --driver mysql 
+     -i ../ontology/go_tc_isa.links.txt 
+
 An overview of the use of transitive closure and deductive closure for 
 GO terms is available from the gene ontology wiki
 http://wiki.geneontology.org/index.php/Transitive_closur. 
@@ -150,7 +179,7 @@ This precomputed file is a result of running obo2linkfile on core GO terms.
 This program is included with the download of the OBO-Edit program.  It is 
 possible to parse out the is_a links from this file, and then load only the 
 is_a relationships to the database. The program 
-tr_import_go_transitive_closure.pl (available from svn) can then be used to 
+tr_import_go_transitive_closure.pl can then be used to 
 import the text file into the cvtermpath table.
 
 The use of these these cvtermpath table to query the database for GO terms 
