@@ -8,7 +8,7 @@ use warnings;
 our $VERSION = '0.0.1';
 
 use base 'DBIx::Class::Core';
-
+#TODO: Refactor to use $reconciliation_set_id - Done
 __PACKAGE__->table_class('DBIx::Class::ResultSource::View');
 
 __PACKAGE__->table("reconciliation_node");
@@ -37,8 +37,7 @@ FROM (
 SELECT reconciliation_node.reconciliation_id, host_child_node_id
 FROM reconciliation_node
 LEFT JOIN reconciliation ON reconciliation_node.reconciliation_id= reconciliation.reconciliation_id
-LEFT JOIN species_tree ON reconciliation.species_tree_id = species_tree.species_tree_id
-WHERE species_tree_name = ?
+WHERE reconciliation_set_id = ?
 AND is_on_node IS FALSE
 GROUP BY reconciliation_node.reconciliation_id, host_child_node_id
 ) AS t1

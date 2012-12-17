@@ -89,8 +89,35 @@ use Readonly;
         return $tree;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
-    # Usage      : $species_tree = $loader->load_species_tree($tree_name);
+    # Usage      : $species_tree = $loader->load_species_tree($reconciliation_set_id);
+    #
+    # Purpose    : Loads the species tree with the given tree name.
+    #
+    # Returns    : The species tree.
+    #
+    # Parameters : $reconciliation_set_id   - the id of the reconcilliation set.
+    #
+    # Throws       IPlant::TreeRec::TreeNotFoundException
+    sub load_species_tree {
+        my ( $self, $reconciliation_set_id ) = @_;
+        # Fetch the database handle.
+        my $dbh = $dbh_of{ ident $self };
+
+        # Get the root node of the species tree.
+        my $db_tree = $dbh->resultset('SpeciesTree')->for_reconciliation_set_id($reconciliation_set_id);
+        my $root = $db_tree->root_node();
+
+        # Build the tree.
+        my $tree = Bio::Tree::Tree->new();
+        $tree->id( $db_tree->species_tree_id() );
+        $tree->set_root_node( $self->_build_species_subtree($root) );
+        return $tree;
+    }
+    
+    ##########################################################################
+    # Usage      : $species_tree = $loader->load_species_tree_by_name($tree_name);
     #
     # Purpose    : Loads the species tree with the given tree name.
     #
@@ -99,7 +126,7 @@ use Readonly;
     # Parameters : $tree_name   - the name of the tree to load.
     #
     # Throws       IPlant::TreeRec::TreeNotFoundException
-    sub load_species_tree {
+    sub load_species_tree_by_name {
         my ( $self, $tree_name ) = @_;
 
         # Fetch the database handle.

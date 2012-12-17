@@ -59,9 +59,10 @@ use Readonly;
         return;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : @node_ids = $finder->for_species($family_name,
-    #                  $species_tree_node_id);
+    #                  $species_tree_node_id,$reconciliation_set_id);
     #
     # Purpose    : Gets the list of matching protein tree node IDs for a
     #              species tree node ID.
@@ -70,18 +71,20 @@ use Readonly;
     #
     # Parameters : $family_name          - the name of the gene family.
     #              $species_tree_node_id - the species tree node identifier.
+    #			   $reconciliation_set_id - the id of the reconciliation set
     #
     # Throws     : IPlant::TreeRec::NodeNotFoundException
     #              IPlant::TreeRec::TreeNotFoundException
     sub for_species {
-        my ( $self, $family_name, $species_tree_node_id ) = @_;
+        my ( $self, $family_name, $species_tree_node_id,$reconciliation_set_id ) = @_;
 
         # Fetch the databse handle.
         my $dbh = $dbh_of{ ident $self };
 
         # Get the objects we need for the query.
         my $protein_tree
-            = $dbh->resultset('ProteinTree')->for_family_name($family_name);
+            = $dbh->resultset('ProteinTree')->for_reconciliation_set_id_and_family_name($family_name,0);
+            
         my $species_tree_node = $dbh->resultset('SpeciesTreeNode')
             ->for_id($species_tree_node_id);
 
@@ -89,9 +92,10 @@ use Readonly;
         my @nodes = $dbh->resultset('ProteinTreeNode')->search(
             {   'protein_tree_id'  => $protein_tree->id(),
                 'cvterm.name'      => 'S',
-                'attributes.value' => $species_tree_node->label(),
+                'attributes.value' => $species_tree_node->label()
+                
             },
-            { join => { 'attributes' => 'cvterm' } },
+            { join => { 'attributes' => 'cvterm' }},
         );
 
         return map { $_->id() } @nodes;

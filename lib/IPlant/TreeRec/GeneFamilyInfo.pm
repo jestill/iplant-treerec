@@ -116,10 +116,8 @@ Readonly my %EMPTY_SUMMARY => (
 
         # Get the gene family, species tree and reconciliation.
         my $family = $dbh->resultset('Family')->for_name($family_name);
-#TODO: Refactor to use $reconciliation_set_id - CHECK
         my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_set_id($reconciliation_set_id); 
-#TODO: Refactor to use $reconciliation_set_id - CHECK
+            = $dbh->resultset('SpeciesTree')->for_reconciliation_set_id($reconciliation_set_id); 
         my $rec_id = $self->_get_reconciliation_id( $reconciliation_set_id,
             $family_name );
 
@@ -165,7 +163,7 @@ Readonly my %EMPTY_SUMMARY => (
         # Get the gene family, species tree and reconciliation.
         my $family = $dbh->resultset('Family')->for_name($family_name);
         my $species_tree
-            = $dbh->resultset('SpeciesTree')->for_set_id($reconciliation_set_id);
+            = $dbh->resultset('SpeciesTree')->for_reconciliation_set_id($reconciliation_set_id);
         my $rec_id = $self->_get_reconciliation_id( $reconciliation_set_id,
             $family_name );
 
@@ -202,7 +200,6 @@ Readonly my %EMPTY_SUMMARY => (
     # Throws     : No exceptions.
     sub _get_reconciliation_id {
         my ( $self, $reconciliation_set_id, $family_name ) = @_;
-
         # Quit early if the required arguments weren't prvided.
         return if !defined $reconciliation_set_id || !defined $family_name;
 

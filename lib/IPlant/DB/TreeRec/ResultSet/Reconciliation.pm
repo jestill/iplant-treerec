@@ -55,13 +55,12 @@ sub for_species_tree_and_family {
 # Throws     : IPlant::TreeRec::ReconciliationNotFoundException.
 sub for_reconciliation_set_id_and_family {
     my ( $self, $reconciliation_set_id, $family_name ) = @_;
-
     # Find the tree.
     my $tree = $self->find(
-        {   'reconciliation_set.reconciliation_set_id' => $reconciliation_set_id,
-            'family.stable_id'               => $family_name,
+        {   'reconciliation_set_id' => $reconciliation_set_id,
+            'family.stable_id'  => $family_name,
         },
-        { 'join' => [ { 'protein_tree' => 'family' }, 'reconciliation_set' ] }
+        { 'join' =>   {'protein_tree' => 'family'} }
     );
     IPlant::TreeRec::TreeNotFoundException->throw(
         error => "no protein tree found for reconciliation set, $reconciliation_set_id"

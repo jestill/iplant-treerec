@@ -36,12 +36,13 @@ use English qw( -no_match_vars );
         return $self;
     }
 
+#TODO: Refactor to use $reconciliation_set_id - Done
     ##########################################################################
     # Usage      : @families = $finder->find_duplication_events(
-    #                  $node_id, $edge_selected );
+    #                  $node_id, $edge_selected, $reconciliation_set_id );
     #
     # Purpose    : Finds duplication events that are located in a specified
-    #              place on a species tree.
+    #              place on a species tree for a given reconciliation set id.
     #
     # Returns    : The list of gene family names.
     #
@@ -49,15 +50,16 @@ use English qw( -no_match_vars );
     #                               node that the selected edge leads into.
     #              $edge_selected - true if the edge leading into the node
     #                               with the given ID is selected.
+    #			   $reconciliation_set_id - the reconciliation set id
     #
     # Throws     : No exceptions.
     sub find_duplication_events {
-        my ( $self, $node_id, $edge_selected ) = @_;
+        my ( $self, $node_id, $edge_selected, $reconciliation_set_id ) = @_;
 
         # Find the duplication events.
         my $dbh = $dbh_of{ ident $self };
         my @family_names = $dbh->resultset('DuplicationSearch')
-            ->search( {}, { 'bind' => [ $node_id, !$edge_selected ] } );
+            ->search( {}, { 'bind' => [ $node_id, !$edge_selected,$reconciliation_set_id] } );
         return @family_names;
     }
 }
