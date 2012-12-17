@@ -736,7 +736,9 @@ ALTER TABLE species_tree_node_path MODIFY COLUMN path TEXT COMMENT 'This will ge
 
 ALTER TABLE species_tree_node_path MODIFY COLUMN distance INTEGER(10) COMMENT 'Distance in the number nodes(or edges) between the child and the parent. This is used for optimized queries of LCA.';
 
-
+alter table species_tree_node_path add index(parent_node_id);
+alter table species_tree_node_path add index(child_node_id);
+alter table species_tree_node_path add index(distance);
 
 -- -----------------------------------------------------------+
 -- -----------------------------------------------------------|
